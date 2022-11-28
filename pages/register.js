@@ -29,6 +29,10 @@ const Register = () => {
       console.log(result);
       router.push('/login')
     } catch (error) {
+      toast.error("Email Already Registered!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1500,
+      });
       console.log(error);
     }
   };

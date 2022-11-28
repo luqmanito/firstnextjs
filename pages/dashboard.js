@@ -30,6 +30,9 @@ function Dashboard() {
   const nav2 = () => {
     router.push("/success");
   };
+  const nav5 = () => {
+    router.push("/profile/profile");
+  };
 
   const { user_id } = useSelector((state) => state.regSlice);
   const { token } = useSelector((state) => state.regSlice);
@@ -80,7 +83,7 @@ function Dashboard() {
                 </p>
                 <p className={` ${styles["p2"]}`}>
                   <Image className={` ${styles["menu"]}`} src={people} />{" "}
-                  <span className={` ${styles["spanp"]}`}>Profile </span>
+                  <span onClick={nav5} className={` ${styles["spanp"]}`}>Profile </span>
                 </p>
                 <p className={` ${styles["p3"]}`}>
                   <Image className={` ${styles["menu"]}`} src={logout} />{" "}

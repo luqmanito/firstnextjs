@@ -62,14 +62,6 @@ const EnterPin = (props) => {
     
   };
 
-  // const handleOk = async (props) => {
-  //     console.log(token);
-  //     try {
-  //     const result = await topUpApi(body, token);
-  //     } catch (error) {
-  //     console.log(error);
-  //     }
-  // };
 
   useEffect(() => {
     setContent(confirm.confirm);
@@ -98,15 +90,8 @@ const EnterPin = (props) => {
                   name="pin"
                   fields={6}
                   onChange={handlerPin}
-                  // className={` ${styles["cd-inp"]}`}
                 />
-                {/* <input
-                className={` ${styles["btn-topup"]}`}
-                type="text"
-                name="amount"
-                id=""
-                onChange={handlerPin}
-            /> */}
+            
               </div>
             </form>
             <button onClick={submitHandler} className={` ${styles["btn-pin"]}`}>

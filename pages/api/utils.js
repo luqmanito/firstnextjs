@@ -1,11 +1,20 @@
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
 
 export const baseUrl = process.env.NEXT_PUBLIC_HOST_KEY;
 
 export const loginApi = (data) => {
   const URL = baseUrl + "/auth/login";
   return axios.post(URL, data);
+};
+
+export const logoutApi = (token) => {
+  const URL = baseUrl + "/auth/logout";
+  console.log();
+  return axios.post(URL, {
+    headers: {
+      Authorization: `Bearer ${token.token}`,
+    },
+  });
 };
 
 export const signup = (body) => {
@@ -15,12 +24,31 @@ export const signup = (body) => {
 
 export const inputPin = (body, user_id, token) => {
   const URL = baseUrl + `/user/pin/${user_id.user_id}`;
+  console.log(body);
   return axios.patch(URL, body, {
     headers: {
       Authorization: `Bearer ${token.token}`,
     },
   });
 };
+
+export const passApi = (body, user_id, token) => {
+  const URL = baseUrl + `/user/password/${user_id.user_id}`;
+  return axios.patch(URL, body, {
+    headers: {
+      Authorization: `Bearer ${token.token}`,
+    },
+  });
+};
+
+// export const pinApi = (body, user_id, token) => {
+//   const URL = baseUrl + `/user/password/${user_id.user_id}`;
+//   return axios.patch(URL, body, {
+//     headers: {
+//       Authorization: `Bearer ${token.token}`,
+//     },
+//   });
+// };
 
 export const topUpApi = (body, token) => {
   const URL = baseUrl + `/transaction/top-up`;
@@ -33,15 +61,6 @@ export const topUpApi = (body, token) => {
   });
 };
 
-// export const transferBalance = (id, body, token) => {
-//   const URL = baseUrl + `/transaction/transfer`;
-//   console.log(id, body, token);
-//   return axios.post(URL, id, body, {
-//     headers: {
-//       Authorization: `Bearer ${token.token}`,
-//     },
-//   });
-// };
 
 export const transferBalance = (body, token) => {
   const URL = baseUrl + `/transaction/transfer`;
@@ -65,6 +84,15 @@ export const getUsers = (token) => {
 export const getProfile = (user_id, token) => {
   const URL = baseUrl + `/user/profile/${user_id.user_id}`;
   return axios.get(URL, {
+    headers: {
+      Authorization: `Bearer ${token.token}`,
+    },
+  });
+};
+
+export const updatePhone = (user_id, body, token) => {
+  const URL = baseUrl + `/user/profile/${user_id.user_id}`;
+  return axios.patch(URL, body, {
     headers: {
       Authorization: `Bearer ${token.token}`,
     },

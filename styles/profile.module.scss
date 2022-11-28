@@ -1,6 +1,9 @@
 .one {
   color: aqua;
 }
+body.active-modal {
+  overflow-y: hidden;
+}
 .two {
   background-color: rgb(247, 0, 0);
   z-index: 1;

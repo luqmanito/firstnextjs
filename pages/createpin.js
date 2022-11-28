@@ -37,8 +37,12 @@ const login = () => {
         autoClose: 1500,
       });
       dispatch(setPin({ pin: result.data.data.pin }));
-      router.push("/history");
+      router.push("/dashboard");
     } catch (error) {
+      toast.error("Server Error!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1500,
+      });
       console.log(error);
     }
   };
@@ -144,20 +148,20 @@ const login = () => {
                         maxlength="1"
                         name="pin6"
                       /> */}
-                      <ReactCodeInput
-                        type="number"
+                    </div>
+                  </div>
+                  <ReactCodeInput
+                        type="password"
                         name="pin"
                         fields={6}
                         onChange={handlerPin}
                       />
-                       <ToastContainer />
-                    </div>
-                  </div>
                 </div>
               </form>
               <button onClick={submitHandler} className={` ${styles["btn"]}`}>
                 Confirm
               </button>
+              <ToastContainer />
             </section>
           </div>
         </aside>

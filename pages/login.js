@@ -1,12 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {useRouter} from 'next/router'
 import { useSelector, useDispatch } from 'react-redux';
 import { loginApi } from "./api/utils";
 import {setUser_id} from "../redux/reducers/regSlice"
 import {setPin} from "../redux/reducers/regSlice"
 import {setToken} from "../redux/reducers/regSlice"
-import "react-toastify/dist/ReactToastify.css";
+
 import styles from "../styles/login.module.scss";
 import Image from "next/image";
 import pic1 from "../public/asset/pic1.png";
@@ -42,13 +43,16 @@ const login = () => {
             position: toast.POSITION.TOP_CENTER,
             autoClose: 1500,
           });
-          
           dispatch(setUser_id({ user_id: result.data.data.id }))
           dispatch(setPin({ pin: result.data.data.pin }))
           dispatch(setToken({ token: result.data.data.token }))
           router.push('/dashboard')
         }
     } catch (error) {
+      toast.error("Email isn't activated or email or password is wrong!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1500,
+      });
       console.log(error);
     }
   };

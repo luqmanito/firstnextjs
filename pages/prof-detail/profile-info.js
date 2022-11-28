@@ -9,56 +9,42 @@ import people from "../../public/asset/people.png";
 import man2 from "../../public/asset/man2.png";
 import check from "../../public/asset/check.png";
 import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 import { jsPDF } from "jspdf";
 import { getProfile } from "../api/utils";
 
 const History = () => {
-//   const { user_id } = useSelector((state) => state.regSlice);
-//   const { token } = useSelector((state) => state.regSlice);
-//   const { confirm } = useSelector((state) => state.confirmSlice);
-//   const [balance, setBalance] = useState(null);
-//   const [phone, setPhone] = useState(null);
-//   const date = new Date();
-//   const { details } = useSelector((state) => state.userTransferSlice);
-//   let da = details.details;
+  const { user_id } = useSelector((state) => state.regSlice);
+  const { token } = useSelector((state) => state.regSlice);
 
-//   const [content, setContent] = useState({
-//     // receiverId: confirm.confirm.id,
-//     amount: null,
-//     notes: null,
-//   });
+  const [balance, setBalance] = useState(null);
+  const [phone, setPhone] = useState(null);
+  const [user, setUser] = useState(null);
+  const [userLast, setUserLast] = useState(null);
+  const [email, setUserEmail] = useState(null);
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
 
-//   const getDataProfile = async () => {
-//     try {
-//       const result = await getProfile(user_id, token);
-//       setBalance(result.data.data.balance);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
+  const getDataProfile = async () => {
+    try {
+      const result = await getProfile(user_id, token);
+      setPhone(result.data.data.noTelp);
+      setUser(result.data.data.firstName);
+      setUserLast(result.data.data.lastName)
+      setUserEmail(result.data.data.email)
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-//   const downloadPdf = () => {
-//     const doc = new jsPDF();
+  const navPhone = () => {
+    router.push("/changephone/modifynum");
+  };
 
-//     doc.text(
-  
-//       `Transaction Status = Success 
-// To = ${da.firstName} ${da.lastName} (${da.noTelp})
-// Amount = Rp.${content.amount}
-// Balance Left = Rp.${balance}
-// Transaction Time = ${date.toLocaleString()}
-// Notes = ${content.notes}`, 10, 10
-      
-//       );
-//     doc.save("a4.pdf");
-//   };
-
-//   useEffect(() => {
-//     getDataProfile();
-//     setContent(confirm.confirm);
-//   }, []);
-
+  useEffect(() => {
+    getDataProfile();
+  }, []);
 
   return (
     <>
@@ -95,47 +81,48 @@ const History = () => {
             <div class="col-8">
               <div className={`container ${styles["trans-wrap"]}`}>
                 <div class="row">
-                <p className={` ${styles["transto"]}`}> Personal Information</p>
-                <p className={` ${styles["transti"]}`}>We got your personal information from the sign up proccess. <br /> If you want to make changes on your information,  <br /> contact our support.</p>
+                  <p className={` ${styles["transto"]}`}>
+                    {" "}
+                    Personal Information
+                  </p>
+                  <p className={` ${styles["transti"]}`}>
+                    We got your personal information from the sign up proccess.{" "}
+                    <br /> If you want to make changes on your information,{" "}
+                    <br /> contact our support.
+                  </p>
                   <div class="col">
-                    
                     <div className={` ${styles["wr-wr"]}`}>
-                   
                       <div className={` ${styles["wr-img"]}`}>
-                     
                         <span className={` ${styles["susi"]}`}>First Name</span>{" "}
-                        <p className={` ${styles["acc3"]}`}>
-                          Robert
-                        </p>
+                        <p className={` ${styles["acc3"]}`}>{user}</p>
                       </div>
                       <div className={` ${styles["wr-img"]}`}>
-                     
+                        <span className={` ${styles["susi"]}`}>Last Name</span>{" "}
+                        <p className={` ${styles["acc3"]}`}>{userLast}</p>
+                      </div>
+                      <div className={` ${styles["wr-img"]}`}>
                         <span className={` ${styles["susi"]}`}>
-                        Last Name
+                          Verified E-mail
                         </span>{" "}
-                        <p className={` ${styles["acc3"]}`}>Snow</p>
+                        <p className={` ${styles["acc3"]}`}>{email}</p>
                       </div>
                       <div className={` ${styles["wr-img"]}`}>
-                        
                         <span className={` ${styles["susi"]}`}>
-                        Verified E-mail
+                          Phone Number
                         </span>{" "}
                         <p className={` ${styles["acc3"]}`}>
-                       mail@mail.com
+                          {phone}
+                        </p>
+                        <p
+                          onClick={navPhone}
+                          className={` ${styles["manage"]}`}
+                        >
+                          Manage
                         </p>
                       </div>
-                      <div className={` ${styles["wr-img"]}`}>
-                     
-                        <span className={` ${styles["susi"]}`}>Phone Number</span>{" "}
-                        <p className={` ${styles["acc3"]}`}>
-                        +62 813-9387-7946
-                        </p>
-                        <p className={` ${styles["manage"]}`}>Manage</p>
-                      </div>
-                   
                     </div>
                   </div>
-                
+
                   <div class="col">
                     <button className={`${styles["filter"]}`}>
                       -- Select Filter --

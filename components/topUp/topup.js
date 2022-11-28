@@ -7,58 +7,62 @@ import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
 const PinConfirm = (props) => {
-const [body, setBody] = useState(null);
-const router = useRouter();
+  const [body, setBody] = useState(null);
+  const router = useRouter();
 
-const handlerPin = (e) =>
-  setBody({ [e.target.name]: Number(e.target.value) });
+  const handlerPin = (e) =>
+    setBody({ [e.target.name]: Number(e.target.value) });
 
-const { token } = useSelector((state) => state.regSlice);
+  const { token } = useSelector((state) => state.regSlice);
 
-console.log(body);
+  console.log(body);
 
-const finalBody = { amount: body };
+  const finalBody = { amount: body };
 
-const handleOk = async (props) => {
+  const handleOk = async (props) => {
     console.log(token);
     try {
-    const result = await topUpApi(body, token);
-    // router.push(result.data.data.redirectUrl)
-    // console.log(result.data.data.redirectUrl);
+      const result = await topUpApi(body, token);
+      console.log(result.data.data.redirectUrl);
+      router.push(`${result.data.data.redirectUrl}`);
     } catch (error) {
-    console.log(error);
+      console.log(error);
     }
-};
+  };
 
-return (
+  return (
     <>
-    {props.open ? (
-    <main className={` ${styles["main-pin"]}`}>
-        <section className={` ${styles["sec-pin"]}`}>
-        <Image onClick={() => props.setOpen(!props)} className={` ${styles["sec-x"]}`} src={x} />
-        <p className={` ${styles["p1"]}`}>Topup</p>
-        <p className={` ${styles["p2"]}`}>
-            Enter the amount of money, and click submit.{" "}
-        </p>
-        <form action="">
-            <div class="container">
-            <input
-                className={` ${styles["btn-topup"]}`}
-                type="text"
-                name="amount"
-                id=""
-                onChange={handlerPin}
+      {props.open ? (
+        <main className={` ${styles["main-pin"]}`}>
+          <section className={` ${styles["sec-pin"]}`}>
+            <Image
+              onClick={() => props.setOpen(!props)}
+              className={` ${styles["sec-x"]}`}
+              src={x}
             />
-            </div>
-        </form>
-        <button onClick={handleOk} className={` ${styles["btn-pin"]}`}>
-            Continue
-        </button>
-        </section>
-    </main>
-     ) : null}
+            <p className={` ${styles["p1"]}`}>Topup</p>
+            <p className={` ${styles["p2"]}`}>
+              Enter the amount of money, and click submit.{" "}
+            </p>
+            <form action="">
+              <div class="container">
+                <input
+                  className={` ${styles["btn-topup"]}`}
+                  type="text"
+                  name="amount"
+                  id=""
+                  onChange={handlerPin}
+                />
+              </div>
+            </form>
+            <button onClick={handleOk} className={` ${styles["btn-pin"]}`}>
+              Continue
+            </button>
+          </section>
+        </main>
+      ) : null}
     </>
-);
+  );
 };
 
 export default PinConfirm;

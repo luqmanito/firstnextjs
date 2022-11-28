@@ -11,62 +11,43 @@ import check from "../../public/asset/check.png";
 import eye from "../../public/asset/eye.png";
 import eyedash from "../../public/asset/eyeslash.png";
 import { useSelector, useDispatch } from "react-redux";
-
 import { jsPDF } from "jspdf";
-import { getProfile } from "../api/utils";
+import {  passApi } from "../api/utils";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const History = () => {
-  //   const { user_id } = useSelector((state) => state.regSlice);
-  //   const { token } = useSelector((state) => state.regSlice);
-  //   const { confirm } = useSelector((state) => state.confirmSlice);
-  //   const [balance, setBalance] = useState(null);
-  //   const [phone, setPhone] = useState(null);
-  //   const date = new Date();
-  //   const { details } = useSelector((state) => state.userTransferSlice);
-  //   let da = details.details;
+  
+  const { token } = useSelector((state) => state.regSlice);
+  const { user_id } = useSelector((state) => state.regSlice);
 
-  //   const [content, setContent] = useState({
-  //     // receiverId: confirm.confirm.id,
-  //     amount: null,
-  //     notes: null,
-  //   });
-
-  //   const getDataProfile = async () => {
-  //     try {
-  //       const result = await getProfile(user_id, token);
-  //       setBalance(result.data.data.balance);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   const downloadPdf = () => {
-  //     const doc = new jsPDF();
-
-  //     doc.text(
-
-  //       `Transaction Status = Success
-  // To = ${da.firstName} ${da.lastName} (${da.noTelp})
-  // Amount = Rp.${content.amount}
-  // Balance Left = Rp.${balance}
-  // Transaction Time = ${date.toLocaleString()}
-  // Notes = ${content.notes}`, 10, 10
-
-  //       );
-  //     doc.save("a4.pdf");
-  //   };
-
-  //   useEffect(() => {
-  //     getDataProfile();
-  //     setContent(confirm.confirm);
-  //   }, []);
   const [body, setBody] = useState({});
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown2, setIsPwdShown2] = useState(false);
   const [isPwdShown3, setIsPwdShown3] = useState(false);
+
   const changeHandler = (e) =>
     setBody({ ...body, [e.target.name]: e.target.value });
   console.log(body);
+
+  const changePass = async () => {
+    try {
+      const result = await passApi(body, user_id, token);
+      toast.success("Your Password has been updated!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000,
+      });
+    } catch (error) {
+      toast.error("Old Password wrong or new password doesn't match!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000,
+      });
+      console.log(error);
+    }
+  };
+
+
+
 
   return (
     <>
@@ -112,11 +93,11 @@ const History = () => {
                     <div className={` ${styles["wr-wr"]}`}>
                       <input
                         onChange={changeHandler}
-                        className={` ${styles["inp"]}`}
+                        className={` ${styles["pwd"]}`}
                         type={isPwdShown ? "text" : "password"}
                         placeholder="🔒 Current password"
-                        name="password"
-                      />
+                        name="oldPassword"
+                      /> <br />
                       <Image
                         className={`${styles["icon-eye"]}`}
                         src={isPwdShown ? eye : eyedash}
@@ -124,11 +105,11 @@ const History = () => {
                       />
                       <input
                         onChange={changeHandler}
-                        className={` ${styles["inp"]}`}
+                        className={` ${styles["pwd"]}`}
                         type={isPwdShown2 ? "text" : "password"}
                         placeholder="🔒 New password"
-                        name="password"
-                      />
+                        name="newPassword"
+                      /> <br />
                       <Image
                         className={`${styles["icon-eye"]}`}
                         src={isPwdShown2 ? eye : eyedash}
@@ -136,19 +117,20 @@ const History = () => {
                       />
                       <input
                         onChange={changeHandler}
-                        className={` ${styles["inp"]}`}
+                        className={` ${styles["pwd"]}`}
                         type={isPwdShown3 ? "text" : "password"}
                         placeholder="🔒 Repeat new password"
-                        name="password"
-                      />
+                        name="confirmPassword"
+                      /> <br />
                       <Image
-                        className={`${styles["icon-eye"]}`}
+                        className={`${styles["icon-eye1"]}`}
                         src={isPwdShown3 ? eye : eyedash}
                         onClick={() => setIsPwdShown3(!isPwdShown3)}
                       />
-                      <button className={` ${styles["btn-pw"]}`}>
+                      <button onClick={changePass} className={` ${styles["btn-pw"]}`}>
                         Change Password
                       </button>
+                      <ToastContainer />
                     </div>
                   </div>
 

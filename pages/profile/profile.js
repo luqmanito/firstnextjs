@@ -6,42 +6,58 @@ import up1 from "../../public/asset/up.png";
 import plus from "../../public/asset/plus.png";
 import logout from "../../public/asset/logout.png";
 import people from "../../public/asset/people.png";
-import man2 from "../../public/asset/man2.png";
+import man2 from "../../public/asset/pip.png";
 import check from "../../public/asset/check.png";
 import { useSelector, useDispatch } from "react-redux";
 import { getProfile } from "../api/utils";
-// import UsersDetail from "../components/detail-user/detail-user";
-import { jsPDF } from "jspdf";
+import Modal from "../../components/logout/logout";
+import { useRouter } from "next/router";
+
 
 const History = () => {
-  //   const { user_id } = useSelector((state) => state.regSlice);
-  //   const { token } = useSelector((state) => state.regSlice);
-  //   const { confirm } = useSelector((state) => state.confirmSlice);
-  //   const [balance, setBalance] = useState(null);
-  //   const [phone, setPhone] = useState(null);
-  //   const date = new Date();
-  //   const { details } = useSelector((state) => state.userTransferSlice);
-  //   let da = details.details;
+    const { user_id } = useSelector((state) => state.regSlice);
+    const { token } = useSelector((state) => state.regSlice);
+    const { confirm } = useSelector((state) => state.confirmSlice);
+    const [balance, setBalance] = useState(null);
+    const [phone, setPhone] = useState(null);
+    const [user, setUser] = useState(null);
+    const [open, setOpen] = useState(false);
+    const router = useRouter();
 
-  //   const [content, setContent] = useState({
-  //     // receiverId: confirm.confirm.id,
-  //     amount: null,
-  //     notes: null,
-  //   });
 
-  //   const getDataProfile = async () => {
-  //     try {
-  //       const result = await getProfile(user_id, token);
-  //       setBalance(result.data.data.balance);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
+    const getDataProfile = async () => {
+      try {
+        const result = await getProfile(user_id, token);
+        setPhone(result.data.data.noTelp);
+        setUser(result.data.data.firstName)
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  //   useEffect(() => {
-  //     getDataProfile();
-  //     setContent(confirm.confirm);
-  //   }, []);
+    const navInfo = () => {
+      router.push("/prof-detail/profile-info");
+    };
+    const navPwd = () => {
+      router.push("/password/changepw");
+    };
+    const navPin = () => {
+      router.push("/changepin/modify");
+    };
+    const handleLogout = async () => {
+      setOpen(!open);
+    };
+  
+
+    useEffect(() => {
+      getDataProfile();
+    }, []);
+
+    if (open) {
+      document.body.classList.add(`${styles['active-modal']}`)
+    } else {
+      document.body.classList.remove(`${styles['active-modal']}`)
+    }
 
   return (
     <>
@@ -52,7 +68,7 @@ const History = () => {
               <div className={`${styles["list-main"]}`}>
                 <p className={` ${styles["p1"]}`}>
                   {" "}
-                  <Image className={` ${styles["menu"]}`} src={grid1} />
+                  <Image className={` ${styles["menu"]}`} src={man2} />
                   <span className={` ${styles["spanpD"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
@@ -82,22 +98,22 @@ const History = () => {
                     
                     <Image className={` ${styles["check-img"]}`} src={man2} />
                     <p className={` ${styles["edit"]}`}>✎ Edit</p>
-                    <p className={` ${styles["rob"]}`}>Robert Chandler</p>
+                    <p className={` ${styles["rob"]}`}>{user}</p>
                     
                     <p className={` ${styles["hp"]}`}>
-                      +62 813-9387-7946
+                      {phone}
                     </p>
                     <div className={` ${styles["cen-pro"]}`}>
-                    <button className={` ${styles["btn-pro"]}`}>
+                    <button onClick={navInfo} className={` ${styles["btn-pro"]}`}>
                       Personal Information →
                     </button> <br />
-                    <button className={` ${styles["btn-pro"]}`}>
+                    <button onClick={navPwd} className={` ${styles["btn-pro"]}`}>
                       Change Password →
                     </button> <br />
-                    <button className={` ${styles["btn-pro"]}`}>
+                    <button onClick={navPin} className={` ${styles["btn-pro"]}`}>
                       Change PIN →
                     </button> <br />
-                    <button className={` ${styles["btn-pro"]}`}>
+                    <button onClick={handleLogout} className={` ${styles["btn-pro"]}`}>
                       Logout →
                     </button>
                     </div>
@@ -108,6 +124,12 @@ const History = () => {
           </div>
         </div>
       </section>
+      <Modal
+      open={open}
+      setOpen={setOpen}
+      title="Log out"
+      body="Do you really want to log out?"
+    />
     </>
   );
 };
