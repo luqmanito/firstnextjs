@@ -99,7 +99,7 @@ const Transfer = () => {
                             name={`${user.firstName} ${user.lastName}`}
                             phone={user.noTelp}
                             image={user.image}
-                            id={user.id}
+                            
                           />
                         )
                       })

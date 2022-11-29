@@ -82,7 +82,7 @@ const CreatePin = () => {
               </p>
               <p className={`${styles["tf"]}`}>
                 Create 6 digits pin to secure all your money and your data in
-                FazzPay app. Keep it secret and don't tell anyone about your
+                FazzPay app. Keep it secret and don`&apos;`t tell anyone about your
                 FazzPay account password and the PIN.
               </p>
               <form action="">

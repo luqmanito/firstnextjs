@@ -125,7 +125,7 @@ const Login = () => {
               <ToastContainer />
               <p className={` ${styles["acc"]}`}>
                 {" "}
-                Don't have an account? Let's{" "}
+                Don`&apos;`t have an account? Let`&apos;`s{" "}
                 <span className={` ${styles["sign"]}`}>Sign Up</span>{" "}
               </p>
             </section>

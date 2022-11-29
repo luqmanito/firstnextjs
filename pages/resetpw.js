@@ -58,7 +58,7 @@ const Resetpw = () => {
           <div className={`col-sm-5 ${styles["sub-sec"]}`}>
             <section className={`${styles["sec-sect"]}`}>
               <p className={`${styles["start"]}`}>
-                Did You Forgot Your Password? Don't Worry, You Can Reset Your
+                Did You Forgot Your Password? Don`&apos;`t Worry, You Can Reset Your
                 Password In a Minutes.
               </p>
               <p className={`${styles["tf"]}`}>

@@ -113,7 +113,7 @@ const Register = () => {
               
               <p className={` ${styles["acc"]}`}>
                 {" "}
-                Already have an account? Let's{" "}
+                Already have an account? Let`&apos;`s{" "}
                 <span className={` ${styles["sign"]}`}>Login</span>{" "}
               </p>
             </section>
