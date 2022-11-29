@@ -1,6 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 
-export default async function Document() {
+export default Document = async () => {
   return (
     <Html>
       <Head> 

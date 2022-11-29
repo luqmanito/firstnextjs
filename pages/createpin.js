@@ -14,7 +14,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 const ReactCodeInput = dynamic(import("react-code-input"));
 
-const login = () => {
+const CreatePin = () => {
   const [isPwdShown, setIsPwdShown] = useState(false);
   const { user_id } = useSelector((state) => state.regSlice);
   const { token } = useSelector((state) => state.regSlice);
@@ -170,4 +170,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default CreatePin;
