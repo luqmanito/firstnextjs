@@ -8,15 +8,41 @@ import logout from "../public/asset/logout.png";
 import people from "../public/asset/people.png";
 import man from "../public/asset/man.png";
 import man2 from "../public/asset/man2.png";
-import {useRouter} from 'next/router'
-
+import { useRouter } from "next/router";
+import UsersHistory from "../components/history-user/detail";
+import { useSelector, useDispatch } from "react-redux";
+import { debounce } from "../helper/debounce";
+import { getUsersHistory } from "./api/utils";
+import { setHistory } from "../redux/reducers/userHistorySlice";
 
 const History = () => {
-  const [isPwdShown, setIsPwdShown] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
   const as = () => {
     router.push("/createpin");
-  }
+  };
+
+  const { token } = useSelector((state) => state.regSlice);
+  const dispatch = useDispatch();
+  const [userTransfer, setuserTransfer] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  const getAllUser = debounce(async () => {
+    try {
+      const result = await getUsersHistory(token);
+      dispatch(setHistory({ history: result.data.data }));
+    } catch (error) {
+      console.log(error);
+    }
+  }, 1500);
+
+  const { history } = useSelector((state) => state.userHistorySlice);
+  console.log(history);
+  let da = history.history;
+  console.log(da);
+  useEffect(() => {
+    getAllUser();
+  }, []);
+ 
 
   return (
     <>
@@ -55,7 +81,10 @@ const History = () => {
                 </p>
                 <p className={` ${styles["p2"]}`}>
                   <Image className={` ${styles["menu"]}`} src={up} />
-                  <span onClick={as} className={` ${styles["spanp"]}`}> Transfer </span>
+                  <span onClick={as} className={` ${styles["spanp"]}`}>
+                    {" "}
+                    Transfer{" "}
+                  </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
                   <Image className={` ${styles["menu"]}`} src={plus} />{" "}
@@ -71,58 +100,21 @@ const History = () => {
                 </p>
               </div>
             </div>
-            <div class="col-8">
-              <div className={`container ${styles["trans-wrap"]}`}>
-                <div class="row">
-                  <div class="col">
-                    <p className={` ${styles["trans"]}`}>Transaction History</p>
-                    <div className={` ${styles["wr-img"]}`}>
-                      <Image className={` ${styles["man2"]}`} src={man2} />{" "}
-                      <span className={` ${styles["suhi"]}`}>Samuel Suhi</span>{" "}
-                      <p className={` ${styles["acc2"]}`}>Accept</p>
-                    </div>
-                    <div className={` ${styles["wr-img"]}`}>
-                      <Image className={` ${styles["man2"]}`} src={man2} />{" "}
-                      <span className={` ${styles["suhi"]}`}>Samuel Suhi</span>{" "}
-                      <p className={` ${styles["acc2"]}`}>Accept</p>
-                    </div>
-                    <div className={` ${styles["wr-img"]}`}>
-                      <Image className={` ${styles["man2"]}`} src={man2} />{" "}
-                      <span className={` ${styles["suhi"]}`}>Samuel Suhi</span>{" "}
-                      <p className={` ${styles["acc2"]}`}>Accept</p>
-                    </div>
-                    <div className={` ${styles["wr-img"]}`}>
-                      <Image className={` ${styles["man2"]}`} src={man2} />{" "}
-                      <span className={` ${styles["suhi"]}`}>Samuel Suhi</span>{" "}
-                      <p className={` ${styles["acc2"]}`}>Accept</p>
-                    </div>
-                    <div className={` ${styles["wr-img"]}`}>
-                      <Image className={` ${styles["man2"]}`} src={man2} />{" "}
-                      <span className={` ${styles["suhi"]}`}>Samuel Suhi</span>{" "}
-                      <p className={` ${styles["acc2"]}`}>Accept</p>
-                    </div>
-                    <div className={` ${styles["wr-img"]}`}>
-                      <Image className={` ${styles["man2"]}`} src={man2} />{" "}
-                      <span className={` ${styles["suhi"]}`}>Samuel Suhi</span>{" "}
-                      <p className={` ${styles["acc2"]}`}>Accept</p>
-                    </div>
-                  </div>
-                  <div className={`col-6 ${styles["transe"]}`}></div>
-                  <div class="col">
-                    <button className={`${styles["filter"]}`}>
-                      -- Select Filter --
-                    </button>
-                    <div className={`${styles["price"]}`}>
-                      <p className={`${styles["idr"]}`}>+Rp50.000</p>
-                      <p className={`${styles["idr"]}`}>+Rp50.000</p>
-                      <p className={`${styles["idr"]}`}>+Rp50.000</p>
-                      <p className={`${styles["idr"]}`}>+Rp50.000</p>
-                      <p className={`${styles["idr"]}`}>+Rp50.000</p>
-                      <p className={`${styles["idr"]}`}>+Rp50.000</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+            <div className={`container ${styles["trans-wrap"]}`}>
+              <p className={` ${styles["trans"]}`}>Transaction History</p>
+
+              {da &&
+                da.map((user) => {
+                  return (
+                    <UsersHistory
+                      name={`${user.firstName} ${user.lastName}`}
+                      status={user.status}
+                      amount={user.amount}
+                      id={user.id}
+                    />
+                  );
+                })}
             </div>
           </div>
         </div>
@@ -131,9 +123,15 @@ const History = () => {
       <section>
         <div class="container">
           <div className={`row ${styles["row-end"]}`}>
-            <div className={`col ${styles["row-end1"]}`}>2020 FazzPay. All right reserved.</div>
-            <div className={`col-6 ${styles["row-end2"]}`}>+62 5637 8882 9901 </div>
-            <div className={`col ${styles["row-end3"]}`} >contact@fazzpay.com</div>
+            <div className={`col ${styles["row-end1"]}`}>
+              2020 FazzPay. All right reserved.
+            </div>
+            <div className={`col-6 ${styles["row-end2"]}`}>
+              +62 5637 8882 9901{" "}
+            </div>
+            <div className={`col ${styles["row-end3"]}`}>
+              contact@fazzpay.com
+            </div>
           </div>
         </div>
       </section>

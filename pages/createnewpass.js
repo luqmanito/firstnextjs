@@ -1,30 +1,34 @@
 import React, { Fragment, useEffect, useState } from "react";
-import styles from "../styles/resetpw.module.scss";
+import styles from "../styles/createnewpass.module.scss";
 import {useRouter} from 'next/router'
 import Image from "next/image";
 import pic1 from "../public/asset/pic1.png";
 import pic2 from "../public/asset/pic2.png";
-import { resetPassApi } from "./api/utils";
+import { createPassApi } from "./api/utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import eye from "../public/asset/eye.png";
+import eyedash from "../public/asset/eyeslash.png";
 
 const login = () => {
   const [body, setBody] = useState(false);
+  const [isPwdShown, setIsPwdShown] = useState(false);
+  const [isPwdShown1, setIsPwdShown1] = useState(false);
   const router = useRouter()
   const changeHandler = (e) =>
   setBody({ ...body, [e.target.name]: e.target.value });
 
   const resetPass = async () => {
     try {
-      const result = await resetPassApi(body);
-      toast.success("Process success, please check your email !", {
+      const result = await createPassApi(body);
+      toast.success("Your password has been updated !", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 1500,
       });
       console.log(result);
-      router.push('/createnewpass')
+    //   router.push('/createnewpass')
     } catch (error) {
-      toast.error("Email isn't activated or email or password is wrong!", {
+      toast.error("Password isn't match!", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 1500,
       });
@@ -62,16 +66,45 @@ const login = () => {
                 Password In a Minutes.
               </p>
               <p className={`${styles["tf"]}`}>
-              To reset your password, you must type your e-mail and we will send a link to your email and you will be directed to the reset password screens.
+              Now you can create a new password for your FazzPay account. Type your password twice so we can confirm your new passsword.
               </p>
               <form action="">
               <input
                   onChange={changeHandler}
                   className={` ${styles["inp"]}`}
                   type="text"
-                  placeholder="✉ Enter your e-mail"
-                  name="email"
+                  placeholder="🔑 Input Key generated from Email"
+                  name="keysChangePassword"
                 />
+                <input
+                  onChange={changeHandler}
+                  className={` ${styles["inp"]}`}
+                  type={isPwdShown1 ? "text" : "password"}
+                  placeholder="🔒 Create new password"
+                  name="newPassword"
+                />
+                <Image
+                  className={`${styles["icon-eye"]}`}
+                  src={isPwdShown ? eye : eyedash}
+                  onClick={() => setIsPwdShown1(!isPwdShown1)}
+                />
+                <br /> <br />
+                <input
+                  onChange={changeHandler}
+                  className={` ${styles["inp"]}`}
+                  type={isPwdShown ? "text" : "password"}
+                  placeholder="🔒 Confirm your new password"
+                  name="confirmPassword"
+                />
+                
+                
+                <Image
+                  className={`${styles["icon-eye"]}`}
+                  src={isPwdShown ? eye : eyedash}
+                  onClick={() => setIsPwdShown(!isPwdShown)}
+                />
+            
+               
               </form>
               <button onClick={resetPass} className={` ${styles["btn"]}`}>Confirm</button>
               <ToastContainer />

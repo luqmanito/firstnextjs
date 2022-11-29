@@ -72,8 +72,29 @@ export const transferBalance = (body, token) => {
   });
 };
 
+export const resetPassApi = (body) => {
+  const URL = baseUrl + `/auth/forgot-password`;
+  console.log(body);
+  return axios.post(URL, body);
+};
+
+export const createPassApi = (body) => {
+  const URL = baseUrl + `/auth/reset-password`;
+  console.log(body);
+  return axios.patch(URL, body);
+};
+
 export const getUsers = (token) => {
   const URL = baseUrl + `/user?page=1&limit=4&search=ma&sort=firstName ASC`;
+  return axios.get(URL, {
+    headers: {
+      Authorization: `Bearer ${token.token}`,
+    },
+  });
+};
+
+export const getUsersHistory = (token) => {
+  const URL = baseUrl + `/transaction/history?page=1&limit=2&filter=MONTH`;
   return axios.get(URL, {
     headers: {
       Authorization: `Bearer ${token.token}`,

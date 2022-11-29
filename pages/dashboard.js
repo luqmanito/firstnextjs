@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import grid from "../public/asset/grid.png";
@@ -17,7 +17,7 @@ import man2 from "../public/asset/man2.png";
 import upg from "../public/asset/upg.png";
 import downm from "../public/asset/downm.png";
 import { getProfile } from "./api/utils";
-
+import UsersHistoryDashboard from "../components/dashboard-history/list-history";
 
 function Dashboard() {
   const router = useRouter();
@@ -33,17 +33,21 @@ function Dashboard() {
   const nav5 = () => {
     router.push("/profile/profile");
   };
-
+  const navSeeAll = () => {
+    router.push("/history");
+  };
+  const { history } = useSelector((state) => state.userHistorySlice);
   const { user_id } = useSelector((state) => state.regSlice);
   const { token } = useSelector((state) => state.regSlice);
   const [balance, setBalance] = useState(null);
   const [phone, setPhone] = useState(null);
-
+  let da = history.history;
+  console.log(da);
   const getDataProfile = async () => {
     try {
       const result = await getProfile(user_id, token);
       setPhone(result.data.data.noTelp);
-     setBalance(result.data.data.balance)
+      setBalance(result.data.data.balance);
     } catch (error) {
       console.log(error);
     }
@@ -56,10 +60,9 @@ function Dashboard() {
   return (
     <>
       <PageTitle title="Dashboard" />
-      
+
       <Header />
-      
-      
+
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
@@ -83,7 +86,9 @@ function Dashboard() {
                 </p>
                 <p className={` ${styles["p2"]}`}>
                   <Image className={` ${styles["menu"]}`} src={people} />{" "}
-                  <span onClick={nav5} className={` ${styles["spanp"]}`}>Profile </span>
+                  <span onClick={nav5} className={` ${styles["spanp"]}`}>
+                    Profile{" "}
+                  </span>
                 </p>
                 <p className={` ${styles["p3"]}`}>
                   <Image className={` ${styles["menu"]}`} src={logout} />{" "}
@@ -95,13 +100,18 @@ function Dashboard() {
               <div class="container">
                 <div className={`row ${styles["mid"]}`}>
                   <div class="col">
-                    <p onClick={nav2} className={` ${styles["bln"]}`}>Balance</p>
+                    <p onClick={nav2} className={` ${styles["bln"]}`}>
+                      Balance
+                    </p>
                     <p className={` ${styles["idr120"]}`}>Rp{balance}</p>
                     <p className={` ${styles["nump"]}`}>{phone}</p>
                   </div>
                   <div class="col-6"></div>
                   <div class="col">
-                    <button onClick={nav1} className={` ${styles["btn-tf"]}`}>↑ Transfer</button> <br /> <br />
+                    <button onClick={nav1} className={` ${styles["btn-tf"]}`}>
+                      ↑ Transfer
+                    </button>{" "}
+                    <br /> <br />
                     <button className={` ${styles["btn-tu"]}`}>+ Top Up</button>
                   </div>
                 </div>
@@ -110,49 +120,42 @@ function Dashboard() {
                 <div className={`col-8 ${styles["th-mid"]}`}>
                   <div class="row">
                     <div class="col-6">
-                        <Image className={` ${styles["arr-i"]}`} src={upg}/>
+                      <Image className={` ${styles["arr-i"]}`} src={upg} />
                       <p className={` ${styles["income"]}`}>Income</p>
-                      <p className={` ${styles["tot-inc"]}`}>Rp.{0+balance}</p>
+                      <p className={` ${styles["tot-inc"]}`}>
+                        Rp.{0 + balance}
+                      </p>
                     </div>
                     <div class="col-6">
-                    <Image className={` ${styles["arr-i"]}`} src={downm}/>
+                      <Image className={` ${styles["arr-i"]}`} src={downm} />
                       <p className={` ${styles["income"]}`}>Expense</p>
                       <p className={` ${styles["tot-inc"]}`}>Rp1.560.000</p>
                     </div>
                   </div>
-                  <Image className={` ${styles["chart"]}`} src={chart}/>
+                  <Image className={` ${styles["chart"]}`} src={chart} />
                 </div>
                 <div className={`col-4 ${styles["ts-mid"]}`}>
                   <div class="row">
                     <div class="col-sm-8">
-                      <p className={` ${styles["trans-h"]}`}>Transaction History</p>
-                      <div className={` ${styles["main-p"]}`}>
-                        {" "}
-                        <Image className={` ${styles["mantiny"]}`} src={man2} />
-                       <span className={` ${styles["sam"]}`}>Samuel Suhi</span>  <p className={` ${styles["sub-p"]}`}>Accept</p>{" "}
-                      </div>
-                      <div className={` ${styles["main-p"]}`}>
-                        {" "}
-                        <Image className={` ${styles["mantiny"]}`} src={man2} />
-                        <span className={` ${styles["sam"]}`}>Samuel Suhi</span> <p className={` ${styles["sub-p"]}`}>Accept</p>{" "}
-                      </div>
-                      <div className={` ${styles["main-p"]}`}>
-                        {" "}
-                        <Image className={` ${styles["mantiny"]}`} src={man2} />
-                        <span className={` ${styles["sam"]}`}>Samuel Suhi</span><p className={` ${styles["sub-p"]}`}>Accept</p>{" "}
-                      </div>
-                      <div className={` ${styles["main-p"]}`}>
-                        {" "}
-                        <Image className={` ${styles["mantiny"]}`} src={man2} />
-                        <span className={` ${styles["sam"]}`}>Samuel Suhi</span> <p className={` ${styles["sub-p"]}`}>Accept</p>{" "}
-                      </div>
+                      <p className={` ${styles["trans-h"]}`}>
+                        Transaction History
+                      </p>
+                      {da &&
+                        da.map((user) => {
+                          return (
+                            <UsersHistoryDashboard
+                              name={`${user.firstName} ${user.lastName}`}
+                              status={user.status}
+                              amount={user.amount}
+                              id={user.id}
+                            />
+                          );
+                        })}
                     </div>
                     <div class="col-sm-4">
-                      <p className={` ${styles["seeall"]}`}>See all</p>
-                      <p className={` ${styles["sub-min"]}`}>+Rp50.000</p>
-                      <p className={` ${styles["sub-min"]}`}>+Rp50.000</p>
-                      <p className={` ${styles["sub-min"]}`}>+Rp50.000</p>
-                      <p className={` ${styles["sub-min"]}`}>+Rp50.000</p>
+                      <p onClick={navSeeAll} className={` ${styles["seeall"]}`}>
+                        See all
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -161,9 +164,8 @@ function Dashboard() {
           </div>
         </div>
       </section>
-     
+
       <Footer />
-    
     </>
   );
 }
