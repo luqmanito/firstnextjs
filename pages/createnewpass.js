@@ -8,7 +8,7 @@ import { createPassApi } from "./api/utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import eye from "../public/asset/eye.png";
-import eyedash from "../public/asset/eyeslash.png";
+import eyedash from "../public/asset/eyeSlash.png";
 
 const Createnewpass = () => {
   const [body, setBody] = useState(false);

@@ -7,8 +7,6 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import pic1 from "../public/asset/pic1.png";
 import pic2 from "../public/asset/pic2.png";
-import eye from "../public/asset/eye.png";
-import eyedash from "../public/asset/eyeslash.png";
 import { inputPin } from "./api/utils";
 import { toast, ToastContainer } from "react-toastify";
 
