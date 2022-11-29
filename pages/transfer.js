@@ -142,6 +142,7 @@ const Transfer = () => {
                                 phone={user.noTelp}
                                 image={user.image}
                                 id={user.id}
+                                key={user.id}
                               />
                             );
                           })}

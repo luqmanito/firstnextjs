@@ -112,6 +112,7 @@ const History = () => {
                       name={`${user.firstName} ${user.lastName}`}
                       status={user.status}
                       amount={user.amount}
+                      key={user.id}
                     />
                   );
                 })}
