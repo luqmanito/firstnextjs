@@ -16,7 +16,7 @@ import eye from "../public/asset/eye.png";
 import eyedash from "../public/asset/eyeslash.png";
 
 
-const login = () => {
+const Login = () => {
   
   const router = useRouter()
   const dispatch = useDispatch();
@@ -136,4 +136,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
