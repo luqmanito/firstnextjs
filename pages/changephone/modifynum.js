@@ -16,6 +16,9 @@ import "react-toastify/dist/ReactToastify.css";
 import dynamic from "next/dynamic";
 import { jsPDF } from "jspdf";
 import { updatePhone } from "../api/utils";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
+import { useRouter } from "next/router";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
 const History = () => {
@@ -23,7 +26,7 @@ const History = () => {
   const { user_id } = useSelector((state) => state.regSlice);
   const { token } = useSelector((state) => state.regSlice);
   const [body, setBody] = useState({});
-
+  const router = useRouter();
   const changeHandler = (e) =>
   setBody({ ...body, [e.target.name]: e.target.value });
 console.log(body);
@@ -36,6 +39,7 @@ console.log(body);
         position: toast.POSITION.TOP_CENTER,
         autoClose: 1500,
       });
+      // router.push("/prof-detail/profile-info");
     } catch (error) {
       toast.error("Update Failed!", {
         position: toast.POSITION.TOP_CENTER,
@@ -49,6 +53,7 @@ console.log(body);
 
   return (
     <>
+    <Header/>
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
@@ -108,6 +113,7 @@ console.log(body);
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   );
 };

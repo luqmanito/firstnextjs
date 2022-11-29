@@ -14,6 +14,7 @@ import UsersDetail from "../components/detail-user/detail-user";
 import { jsPDF } from "jspdf";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
+import { useRouter } from "next/router";
 
 const History = () => {
   const { user_id } = useSelector((state) => state.regSlice);
@@ -31,6 +32,10 @@ const History = () => {
     notes: null,
   });
 
+  const nav1 = () => {
+    router.push("/dashboard");
+  };
+
   const getDataProfile = async () => {
     try {
       const result = await getProfile(user_id, token);
@@ -39,7 +44,7 @@ const History = () => {
       console.log(error);
     }
   };
-
+  const router = useRouter();
   const downloadPdf = () => {
     const doc = new jsPDF();
 
@@ -72,7 +77,7 @@ Notes = ${content.notes}`, 10, 10
                 <p className={` ${styles["p1"]}`}>
                   {" "}
                   <Image className={` ${styles["menu"]}`} src={grid1} />
-                  <span className={` ${styles["spanpD"]}`}>Dashboard</span>
+                  <span onClick={nav1} className={` ${styles["spanpD"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
                   <Image className={` ${styles["menu"]}`} src={up1} />
@@ -135,19 +140,11 @@ Notes = ${content.notes}`, 10, 10
                         name={`${da.firstName} ${da.lastName}`}
                         phone={da.noTelp}
                       />
-                      {/* <div className={` ${styles["wr-img"]}`}>
-                        <Image className={` ${styles["man2"]}`} src={man2} />{" "}
-                        <span className={` ${styles["suhi"]}`}>
-                          Samuel Suhi
-                        </span>{" "}
-                        <p className={` ${styles["acc2"]}`}>
-                          +62 813-8492-9994
-                        </p>
-                      </div> */}
+                    
                     </div>
                   </div>
                   <button onClick={downloadPdf} className={`${styles["contu"]}`}>Download PDF</button>
-                  <button className={`${styles["conti"]}`}>Continue</button>
+                  <button onClick={nav1} className={`${styles["conti"]}`}>Continue</button>
                   <div class="col">
                     <button className={`${styles["filter"]}`}>
                       -- Select Filter --

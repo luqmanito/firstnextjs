@@ -13,6 +13,8 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 import { checkPinUser, getProfile } from "../api/utils";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
 const History = () => {
@@ -45,6 +47,7 @@ const History = () => {
 
   return (
     <>
+    <Header/>
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
@@ -105,6 +108,7 @@ const History = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   );
 };

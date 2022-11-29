@@ -12,6 +12,8 @@ import { useSelector, useDispatch } from "react-redux";
 import UsersDetail from "../components/detail-user/detail-user";
 import { getProfile } from "./api/utils";
 import { useRouter } from "next/router";
+import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
 
 const History = () => {
   const [isPwdShown, setIsPwdShown] = useState(false);
@@ -25,18 +27,7 @@ const History = () => {
   
   let da = details.details;
   console.log(confirm.confirm, token);
-  // const submitHandler = async () => {
-  //   try {
-  //     const result = await transferBalance(body, token);
-  //       toast.success("Please wait..", {
-  //         position: toast.POSITION.TOP_CENTER,
-  //         autoClose: 1500,
-  //       });
-  //     console.log(result);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+
   const date = new Date();
 
   const getDataProfile = async () => {
@@ -62,6 +53,9 @@ const History = () => {
 
   return (
     <>
+
+  <Header/>
+
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
@@ -168,6 +162,7 @@ const History = () => {
         body="Do you really want to log out?"
         confirm={confirm.confirm}
       />
+      <Footer/>
     </>
   );
 };

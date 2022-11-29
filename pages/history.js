@@ -14,6 +14,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { debounce } from "../helper/debounce";
 import { getUsersHistory } from "./api/utils";
 import { setHistory } from "../redux/reducers/userHistorySlice";
+import Head from "next/head";
+import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
 
 const History = () => {
   const router = useRouter();
@@ -46,11 +49,9 @@ const History = () => {
 
   return (
     <>
-      <main className={`container ${styles["two"]}`}>
-        {/* <section className={`container ${styles["twos"]}`}> */}
+      {/* <main className={`container ${styles["two"]}`}>
         <aside className={`row ${styles["row-f"]}`}>
-          <div className={`col-md-8 ${styles["fazz"]}`}>
-            {/* <Image className={` ${styles["man"]}`} src={man} /> */}
+          <div className={`col-md-8 ${styles["fazz"]}`}>    
             <p> Fazzpay</p>
           </div>
           <div className={`col-6 col-md-4 ${styles["fazzy"]}`}>
@@ -66,8 +67,8 @@ const History = () => {
             </div>
           </div>
         </aside>
-        {/* </section> */}
-      </main>
+      </main> */}
+      <Header/>
 
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
@@ -118,8 +119,8 @@ const History = () => {
           </div>
         </div>
       </section>
-
-      <section>
+<Footer/>
+      {/* <section>
         <div class="container">
           <div className={`row ${styles["row-end"]}`}>
             <div className={`col ${styles["row-end1"]}`}>
@@ -133,7 +134,7 @@ const History = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

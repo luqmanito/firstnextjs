@@ -57,6 +57,9 @@ const Login = () => {
     }
   };
 
+  const nav1 = () => {
+    router.push("/resetpw");
+  };
  
   
 
@@ -118,8 +121,8 @@ const Login = () => {
                   src={isPwdShown ? eye : eyedash}
                   onClick={() => setIsPwdShown(!isPwdShown)}
                 />
-                <p className={` ${styles["pw"]}`}>Forgot password ?</p>
-               
+                <p onClick={nav1} className={` ${styles["pw"]}`}>Forgot password ?</p>
+              
               </form>
               <button onClick={submitHandler} className={` ${styles["btn"]}`}>Login</button>
               <ToastContainer />

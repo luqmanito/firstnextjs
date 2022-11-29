@@ -49,6 +49,9 @@ const History = () => {
     const handleLogout = async () => {
       setOpen(!open);
     };
+    const navDashb = () => {
+      router.push("/dashboard");
+    };
   
 
     useEffect(() => {
@@ -72,7 +75,7 @@ const History = () => {
                 <p className={` ${styles["p1"]}`}>
                   {" "}
                   <Image className={` ${styles["menu"]}`} src={man2} />
-                  <span className={` ${styles["spanpD"]}`}>Dashboard</span>
+                  <span onClick={navDashb} className={` ${styles["spanpD"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
                   <Image className={` ${styles["menu"]}`} src={up1} />

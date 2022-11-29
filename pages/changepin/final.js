@@ -12,6 +12,9 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import dynamic from "next/dynamic";
 import { inputPin } from "../api/utils";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
+import { useRouter } from "next/router";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
 const History = () => {
@@ -19,6 +22,7 @@ const History = () => {
   const { user_id } = useSelector((state) => state.regSlice);
   const { token } = useSelector((state) => state.regSlice);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const handlerPin = (e) => setBody(Number(`${e}`));
   console.log(body);
@@ -44,8 +48,13 @@ const History = () => {
     }
   };
 
+  const navDashboard = () => {
+    router.push("/dashboard");
+  };
+
   return (
     <>
+    <Header/>
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
@@ -54,7 +63,7 @@ const History = () => {
                 <p className={` ${styles["p1"]}`}>
                   {" "}
                   <Image className={` ${styles["menu"]}`} src={grid1} />
-                  <span className={` ${styles["spanpD"]}`}>Dashboard</span>
+                  <span onClick={navDashboard} className={` ${styles["spanpD"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
                   <Image className={` ${styles["menu"]}`} src={up1} />
@@ -107,6 +116,7 @@ const History = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   );
 };

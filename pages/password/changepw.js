@@ -15,6 +15,8 @@ import { jsPDF } from "jspdf";
 import {  passApi } from "../api/utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 
 const History = () => {
   
@@ -51,6 +53,7 @@ const History = () => {
 
   return (
     <>
+    <Header/>
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
@@ -141,6 +144,7 @@ const History = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   );
 };

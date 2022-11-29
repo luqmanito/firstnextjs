@@ -24,7 +24,7 @@ function UsersHistoryDashboard({name, status, amount}) {
                   </div>
                 </div>
                 <div className={`col-4 ${styles["idrhist"]}`}>
-                <p className={`${styles["idr"]}`}>+{amount}</p>
+                <p className={`${styles["idr"]}`}>-{amount}</p>
                 </div>
               </div>
     </>

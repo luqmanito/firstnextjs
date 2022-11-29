@@ -13,6 +13,8 @@ import { useRouter } from "next/router";
 
 import { jsPDF } from "jspdf";
 import { getProfile } from "../api/utils";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 
 const History = () => {
   const { user_id } = useSelector((state) => state.regSlice);
@@ -48,6 +50,7 @@ const History = () => {
 
   return (
     <>
+    <Header/>
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
@@ -134,6 +137,7 @@ const History = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   );
 };

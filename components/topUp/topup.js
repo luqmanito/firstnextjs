@@ -24,7 +24,8 @@ const PinConfirm = (props) => {
     try {
       const result = await topUpApi(body, token);
       console.log(result.data.data.redirectUrl);
-      router.push(`${result.data.data.redirectUrl}`);
+      window.open(`${result.data.data.redirectUrl}`)
+      // router.push(`${result.data.data.redirectUrl}`);
     } catch (error) {
       console.log(error);
     }

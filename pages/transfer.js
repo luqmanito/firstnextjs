@@ -22,8 +22,13 @@ const Transfer = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [userTransfer, setuserTransfer] = useState(null);
+  const [searchProduct, setSearchProduct] = useState("");
   const [open, setOpen] = useState(false);
 
+  const updateChange = e => setSearchProduct(e.target.value)
+  const debounceOnChange = () => {
+    debounce(updateChange,1000)
+  }
 
   const handleLogout = async () => {
     setOpen(!open);
@@ -38,7 +43,6 @@ const Transfer = () => {
     }
   }, 1500);
 
-  
 
   const { details } = useSelector((state) => state.userTransferSlice);
   useEffect(() => {
@@ -87,18 +91,47 @@ const Transfer = () => {
                   <div class="col">
                     <p className={` ${styles["trans"]}`}> Search Receiver</p>
                     <input
+                    onChange={debounce(updateChange,2000)} 
                       className={` ${styles["search"]}`}
                       type="text"
                       placeholder="🔎︎ Search receiver here"
                     />
                     <div className={` ${styles["wr-wr"]}`}>
-                      {
+                      {/* {
                       da && da.map((user) => {
                         return (
                           <Users
                             name={`${user.firstName} ${user.lastName}`}
                             phone={user.noTelp}
                             image={user.image}
+                            id={user.id}
+                            
+                          />
+                        )
+                      })
+                      } */}
+
+{
+                      da && da
+                      .filter( (user) => {
+                        if (searchProduct === "") {
+                          return user;
+                        } else if (
+                          user.firstName
+                            .toLowerCase()
+                            .includes(searchProduct.toLowerCase())
+                      
+                        ) {
+                          return user;
+                        }
+                      })
+                      .map((user) => {
+                        return (
+                          <Users
+                            name={`${user.firstName} ${user.lastName}`}
+                            phone={user.noTelp}
+                            image={user.image}
+                            id={user.id}
                             
                           />
                         )
