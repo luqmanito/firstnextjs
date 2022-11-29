@@ -43,6 +43,7 @@ function Dashboard() {
   const [phone, setPhone] = useState(null);
   let da = history.history;
   console.log(da);
+  
   const getDataProfile = async () => {
     try {
       const result = await getProfile(user_id, token);

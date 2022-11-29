@@ -12,6 +12,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProfile } from "./api/utils";
 import UsersDetail from "../components/detail-user/detail-user";
 import { jsPDF } from "jspdf";
+import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
 
 const History = () => {
   const { user_id } = useSelector((state) => state.regSlice);
@@ -61,6 +63,7 @@ Notes = ${content.notes}`, 10, 10
 
   return (
     <>
+    <Header/>
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
@@ -156,6 +159,7 @@ Notes = ${content.notes}`, 10, 10
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   );
 };

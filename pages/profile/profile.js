@@ -12,6 +12,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProfile } from "../api/utils";
 import Modal from "../../components/logout/logout";
 import { useRouter } from "next/router";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 
 
 const History = () => {
@@ -61,6 +63,7 @@ const History = () => {
 
   return (
     <>
+    <Header/>
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
@@ -124,6 +127,7 @@ const History = () => {
           </div>
         </div>
       </section>
+      <Footer/>
       <Modal
       open={open}
       setOpen={setOpen}

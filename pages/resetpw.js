@@ -8,7 +8,7 @@ import { resetPassApi } from "./api/utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const login = () => {
+const Resetpw = () => {
   const [body, setBody] = useState(false);
   const router = useRouter()
   const changeHandler = (e) =>
@@ -83,4 +83,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Resetpw;

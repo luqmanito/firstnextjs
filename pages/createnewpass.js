@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import eye from "../public/asset/eye.png";
 import eyedash from "../public/asset/eyeslash.png";
 
-const login = () => {
+const Createnewpass = () => {
   const [body, setBody] = useState(false);
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown1, setIsPwdShown1] = useState(false);
@@ -116,4 +116,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Createnewpass;
