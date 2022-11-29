@@ -9,6 +9,15 @@
   //    border: solid;
   //    border-color: black;
 }
+.main-menu{
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  row-gap: 14px;
+  /* column-gap: 15px; */
+  padding-top: 45px;
+}
+
 .main {
   background-color: white;
 }

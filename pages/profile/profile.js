@@ -58,11 +58,11 @@ const History = () => {
       getDataProfile();
     }, []);
 
-    if (open) {
-      document.body.classList.add(`${styles['active-modal']}`)
-    } else {
-      document.body.classList.remove(`${styles['active-modal']}`)
-    }
+    // if (open) {
+    //   document.body.classList.add(`${styles['active-modal']}`)
+    // } else {
+    //   document.body.classList.remove(`${styles['active-modal']}`)
+    // }
 
   return (
     <>

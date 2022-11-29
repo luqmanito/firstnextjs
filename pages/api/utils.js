@@ -41,14 +41,6 @@ export const passApi = (body, user_id, token) => {
   });
 };
 
-// export const pinApi = (body, user_id, token) => {
-//   const URL = baseUrl + `/user/password/${user_id.user_id}`;
-//   return axios.patch(URL, body, {
-//     headers: {
-//       Authorization: `Bearer ${token.token}`,
-//     },
-//   });
-// };
 
 export const topUpApi = (body, token) => {
   const URL = baseUrl + `/transaction/top-up`;
@@ -94,7 +86,7 @@ export const getUsers = (token) => {
 };
 
 export const getUsersHistory = (token) => {
-  const URL = baseUrl + `/transaction/history?page=1&limit=2&filter=MONTH`;
+  const URL = baseUrl + `/transaction/history?page=1&limit=4&filter=MONTH`;
   return axios.get(URL, {
     headers: {
       Authorization: `Bearer ${token.token}`,

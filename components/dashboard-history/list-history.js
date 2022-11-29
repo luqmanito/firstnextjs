@@ -15,7 +15,7 @@ function UsersHistoryDashboard({name, status, amount}) {
 
   return (
     <>
-       <div class="row">
+      <div class="row">
                 <div class="col-8">
                   <div className={` ${styles["wr-img"]}`}>
                     <Image className={` ${styles["man2"]}`} src={man2} />{" "}
