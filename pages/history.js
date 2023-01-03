@@ -6,8 +6,6 @@ import up from "../public/asset/up.png";
 import plus from "../public/asset/plus.png";
 import logout from "../public/asset/logout.png";
 import people from "../public/asset/people.png";
-import man from "../public/asset/man.png";
-import man2 from "../public/asset/man2.png";
 import { useRouter } from "next/router";
 import UsersHistory from "../components/history-user/detail";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,6 +15,7 @@ import { setHistory } from "../redux/reducers/userHistorySlice";
 import Head from "next/head";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
+import Cookies from "js-cookie";
 
 const History = () => {
   const router = useRouter();
@@ -24,28 +23,38 @@ const History = () => {
     router.push("/createpin");
   };
 
-  const { token } = useSelector((state) => state.regSlice);
+  // const { token } = useSelector((state) => state.regSlice);
+console.log(Cookies.get("tokenUser"));
   const dispatch = useDispatch();
   const [userTransfer, setuserTransfer] = useState(null);
   const [open, setOpen] = useState(false);
 
   const getAllUser = debounce(async () => {
     try {
-      const result = await getUsersHistory(token);
+      const result = await getUsersHistory(Cookies.get("tokenUser"));
       dispatch(setHistory({ history: result.data.data }));
+      // Cookies.set("userHistory", JSON.stringify(result.data.data));
     } catch (error) {
       console.log(error);
     }
   }, 1500);
 
+  // console.log(Cookies.get("userHistory"));
+  // console.log(Cookies.get("tokenUser"));
+
+  // const jsonUserHistory = JSON.parse(Cookies.get("userHistory"))
+  // console.log(jsonUserHistory);
+
+
   const { history } = useSelector((state) => state.userHistorySlice);
   console.log(history);
+  // const di = jsonUserHistory
+  // console.log(di);
   let da = history.history;
   console.log(da);
   useEffect(() => {
     getAllUser();
   }, []);
- 
 
   return (
     <>
@@ -68,7 +77,7 @@ const History = () => {
           </div>
         </aside>
       </main> */}
-      <Header/>
+      <Header />
 
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
@@ -112,6 +121,7 @@ const History = () => {
                       name={`${user.firstName} ${user.lastName}`}
                       status={user.status}
                       amount={user.amount}
+                      type={user.type}
                       key={user.id}
                     />
                   );
@@ -120,7 +130,7 @@ const History = () => {
           </div>
         </div>
       </section>
-<Footer/>
+      <Footer />
       {/* <section>
         <div class="container">
           <div className={`row ${styles["row-end"]}`}>

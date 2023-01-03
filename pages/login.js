@@ -14,6 +14,7 @@ import pic1 from "../public/asset/pic1.png";
 import pic2 from "../public/asset/pic2.png";
 import eye from "../public/asset/eye.png";
 import eyedash from "../public/asset/eyeSlash.png";
+import Cookies from "js-cookie";
 
 
 const Login = () => {
@@ -37,6 +38,7 @@ const Login = () => {
           });
           dispatch(setUser_id({ user_id: result.data.data.id }))
           dispatch(setToken({ token: result.data.data.token }))
+          Cookies.set("tokenUser", result.data.data.token);
           router.push('/createpin')
         } else {
           toast.success("Login Succesfully!", {
@@ -46,6 +48,7 @@ const Login = () => {
           dispatch(setUser_id({ user_id: result.data.data.id }))
           dispatch(setPin({ pin: result.data.data.pin }))
           dispatch(setToken({ token: result.data.data.token }))
+          Cookies.set("tokenUser", result.data.data.token);
           router.push('/dashboard')
         }
     } catch (error) {

@@ -36,6 +36,12 @@ function Dashboard() {
   const navSeeAll = () => {
     router.push("/history");
   };
+  const rupiah = number => {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+    }).format(number);
+  };
   const { history } = useSelector((state) => state.userHistorySlice);
   const { user_id } = useSelector((state) => state.regSlice);
   const { token } = useSelector((state) => state.regSlice);
@@ -104,7 +110,7 @@ function Dashboard() {
                     <p onClick={nav2} className={` ${styles["bln"]}`}>
                       Balance
                     </p>
-                    <p className={` ${styles["idr120"]}`}>Rp{balance}</p>
+                    <p className={` ${styles["idr120"]}`}>{rupiah(balance)}</p>
                     <p className={` ${styles["nump"]}`}>{phone}</p>
                   </div>
                   <div class="col-6"></div>
@@ -124,13 +130,13 @@ function Dashboard() {
                       <Image className={` ${styles["arr-i"]}`} src={upg} />
                       <p className={` ${styles["income"]}`}>Income</p>
                       <p className={` ${styles["tot-inc"]}`}>
-                        Rp.{0 + balance}
+                        {rupiah(Number(balance))}
                       </p>
                     </div>
                     <div class="col-6">
                       <Image className={` ${styles["arr-i"]}`} src={downm} />
                       <p className={` ${styles["income"]}`}>Expense</p>
-                      <p className={` ${styles["tot-inc"]}`}>Rp1.560.000</p>
+                      <p className={` ${styles["tot-inc"]}`}>Rp 1.560.000,00</p>
                     </div>
                   </div>
                   <Image className={` ${styles["chart"]}`} src={chart} />
@@ -146,6 +152,7 @@ function Dashboard() {
                           return (
                             <UsersHistoryDashboard
                               name={`${user.firstName} ${user.lastName}`}
+                              type={user.type}
                               status={user.status}
                               amount={user.amount}
                               key={user.id}

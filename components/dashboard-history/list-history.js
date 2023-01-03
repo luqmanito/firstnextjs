@@ -5,28 +5,40 @@ import styles from "../dashboard-history/list-history.module.scss";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 
-function UsersHistoryDashboard({name, status, amount}) {
+function UsersHistoryDashboard({ name, type, status, amount, key }) {
   const router = useRouter();
 
-  const {ed} = router.query
+  const { ed } = router.query;
   const nav1 = () => {
     router.push(`/input-bank/${id}`);
+  };
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
   };
 
   return (
     <>
       <div class="row">
-                <div class="col-8">
-                  <div className={` ${styles["wr-img"]}`}>
-                    <Image className={` ${styles["man2"]}`} src={man2} />{" "}
-                    <span className={` ${styles["suhi"]}`}>{name}</span>{" "}
-                    <p className={` ${styles["acc2"]}`}>{status}</p>
-                  </div>
-                </div>
-                <div className={`col-4 ${styles["idrhist"]}`}>
-                <p className={`${styles["idr"]}`}>-{amount}</p>
-                </div>
-              </div>
+        <div class="col-8">
+          <div className={` ${styles["wr-img"]}`}>
+            <Image className={` ${styles["man2"]}`} src={man2} />{" "}
+            <span className={` ${styles["suhi"]}`}>{name}</span>{" "}
+            <p className={status === 'success' ? ` ${styles["acc2"]}` :` ${styles["acc3"]}`}>{status}</p>
+          </div>
+        </div>
+        <div className={`col-4 ${styles["idrhist"]}`}>
+          <p
+            className={
+              type === "topup" ? `${styles["idrplus"]}` : `${styles["idr"]}`
+            }
+          >
+            {  type === "topup" ? `+${rupiah(amount)}` : `-${rupiah(amount)}`}
+          </p>
+        </div>
+      </div>
     </>
   );
 }

@@ -87,9 +87,10 @@ export const getUsers = (token) => {
 
 export const getUsersHistory = (token) => {
   const URL = baseUrl + `/transaction/history?page=1&limit=4&filter=MONTH`;
+  console.log(token);
   return axios.get(URL, {
     headers: {
-      Authorization: `Bearer ${token.token}`,
+      Authorization: `Bearer ${token}`,
     },
   });
 };
