@@ -2,13 +2,13 @@
     "version": 2,
     "builds": [
       {
-        "pages": "./login.js",
+        "src": "./login.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
-        "pages": "/(.*)",
+        "src": "/(.*)",
         "dest": "/"
       }
     ]
