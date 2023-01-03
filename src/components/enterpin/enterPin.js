@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import styles from "../enterpin/enterPin.module.scss";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import x from "../../public/asset/x.png";
+import x from "../../../public/asset/x.png";
 import { checkPinUser, topUpApi } from "../../pages/api/utils";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";

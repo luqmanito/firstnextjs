@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Image from "next/image";
-import man from "../../public/asset/man.png"
+import man2 from "../../../public/asset/pip.png";
 import styles from "../header/header.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { getProfile } from "../../pages/api/utils";
