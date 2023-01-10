@@ -20,11 +20,12 @@ import man2 from "../../../public/asset/man2.png";
 import Users from "../../components/usersTransfer/[id]";
 import UsersDetail from "../../components/detail-user/detail-user";
 
-const Transfer = () => {
+const InputBank = () => {
+  const { details } = useSelector((state) => state.userTransferSlice);
   const { token } = useSelector((state) => state.regSlice);
   const { user_id } = useSelector((state) => state.regSlice);
   const [balance, setBalance] = useState(null);
- 
+  const [userData, setUserData] = useState("name");
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -82,9 +83,10 @@ const Transfer = () => {
   };
 
 
-  const { details } = useSelector((state) => state.userTransferSlice);
+  
 
   useEffect(() => {
+    setUserData(details.details);
     getDataUser();
     getDataProfile();
   }, []);
@@ -132,8 +134,8 @@ const Transfer = () => {
                     <p className={` ${styles["trans"]}`}> Transfer Money</p>
                     <div className={` ${styles["wr-wr"]}`}>
                       <UsersDetail
-                        name={`${da.firstName} ${da.lastName}`}
-                        phone={da.noTelp}
+                        name={`${userData.firstName} ${userData.lastName}`}
+                        phone={userData.noTelp}
                       />
                     </div>
                     <p className={` ${styles["textam"]}`}>
@@ -188,4 +190,4 @@ const Transfer = () => {
   );
 };
 
-export default Transfer;
+export default InputBank;
