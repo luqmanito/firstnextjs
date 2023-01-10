@@ -123,13 +123,13 @@ console.log(Cookies.get("tokenUser"));
                   // console.log(user.firstName)
                   return (
                     <UsersHistory
-                      name={`${user.firstName} ${user.lastName}`}
-                      status={user.status}
-                      amount={user.amount}
-                      type={user.type}
+                      // name={`${user.firstName} ${user.lastName}`}
+                      // status={user.status}
+                      // amount={user.amount}
+                      // type={user.type}
                       key={user.id}
                     />
-                  );
+                  )
                 })}
             </div>
           </div>
