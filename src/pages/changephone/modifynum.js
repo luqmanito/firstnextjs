@@ -17,7 +17,7 @@ import Footer from "../../components/footer/footer";
 import { useRouter } from "next/router";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
-const History = () => {
+const ChangeNum = () => {
 
   const { user_id } = useSelector((state) => state.regSlice);
   const { token } = useSelector((state) => state.regSlice);
@@ -114,4 +114,4 @@ console.log(body);
   );
 };
 
-export default History;
+export default ChangeNum;

@@ -16,7 +16,7 @@ import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import { useRouter } from "next/router";
 
-const History = () => {
+const SuccessPage = () => {
   const { user_id } = useSelector((state) => state.regSlice);
   const { token } = useSelector((state) => state.regSlice);
   const { confirm } = useSelector((state) => state.confirmSlice);
@@ -161,4 +161,4 @@ Notes = ${content.notes}`, 10, 10
   );
 };
 
-export default History;
+export default SuccessPage;

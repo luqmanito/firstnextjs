@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 
-const History = () => {
+const ConfirmationPage = () => {
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [open, setOpen] = useState(false);
   const [balance, setBalance] = useState(null);
@@ -167,4 +167,4 @@ const History = () => {
   );
 };
 
-export default History;
+export default ConfirmationPage;

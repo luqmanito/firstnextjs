@@ -118,19 +118,19 @@ console.log(Cookies.get("tokenUser"));
             <div className={`container ${styles["trans-wrap"]}`}>
               <p className={` ${styles["trans"]}`}>Transaction History</p>
 
-              {/* {dataHistory &&
+              {dataHistory &&
                 dataHistory.map((user) => {
                   // console.log(user.firstName)
                   return (
                     <UsersHistory
-                      // name={`${user.firstName} ${user.lastName}`}
-                      // status={user.status}
-                      // amount={user.amount}
-                      // type={user.type}
+                      name={`${user.firstName} ${user.lastName}`}
+                      status={user.status}
+                      amount={user.amount}
+                      type={user.type}
                       key={user.id}
                     />
                   )
-                })} */}
+                })}
             </div>
           </div>
         </div>

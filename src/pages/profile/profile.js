@@ -16,7 +16,7 @@ import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 
 
-const History = () => {
+const ProfilePage = () => {
     const { user_id } = useSelector((state) => state.regSlice);
     const { token } = useSelector((state) => state.regSlice);
     const { confirm } = useSelector((state) => state.confirmSlice);
@@ -141,4 +141,4 @@ const History = () => {
   );
 };
 
-export default History;
+export default ProfilePage;

@@ -15,7 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 
-const History = () => {
+const ChangePass = () => {
   
   const { token } = useSelector((state) => state.regSlice);
   const { user_id } = useSelector((state) => state.regSlice);
@@ -149,4 +149,4 @@ const History = () => {
   );
 };
 
-export default History;
+export default ChangePass;

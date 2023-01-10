@@ -17,7 +17,7 @@ import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
-const History = () => {
+const PinPage = () => {
 
   const [body, setBody] = useState({});
   const { token } = useSelector((state) => state.regSlice);
@@ -113,4 +113,4 @@ const History = () => {
   );
 };
 
-export default History;
+export default PinPage;
