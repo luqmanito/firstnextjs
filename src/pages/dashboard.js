@@ -36,10 +36,10 @@ function Dashboard() {
   const navSeeAll = () => {
     router.push("/history");
   };
-  const rupiah = number => {
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
     }).format(number);
   };
   const { history } = useSelector((state) => state.userHistorySlice);
@@ -47,8 +47,16 @@ function Dashboard() {
   const { token } = useSelector((state) => state.regSlice);
   const [balance, setBalance] = useState(null);
   const [phone, setPhone] = useState(null);
-  let da = history.history;
-  console.log(da);
+  const [dataHistory, setDataHistory] = useState(null
+  //   {
+  //   name: `nama`,
+  //   type: 'await',
+  //   status: 'await',
+  //   amount: 0,
+  // }
+  );
+  // let da = history.history;
+  console.log(dataHistory);
 
   const getDataProfile = async () => {
     try {
@@ -61,7 +69,9 @@ function Dashboard() {
   };
 
   useEffect(() => {
+    setDataHistory(history.history);
     getDataProfile();
+ 
   }, []);
 
   return (
@@ -77,44 +87,60 @@ function Dashboard() {
               <div className={`${styles["list-main"]}`}>
                 <p className={` ${styles["p1"]}`}>
                   {" "}
-                  <Image className={` ${styles["menus"]}`} src={grid} />
+                  <Image
+                    className={` ${styles["menus"]}`}
+                    src={grid}
+                    alt="gbr"
+                  />
                   <span className={` ${styles["spanpd"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={up} />
+                  <Image className={` ${styles["menu"]}`} src={up} alt="gbr" />
                   <span onClick={as} className={` ${styles["spanp"]}`}>
                     {" "}
                     Transfer{" "}
                   </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={plus} />{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={plus}
+                    alt="gbr"
+                  />{" "}
                   <span className={` ${styles["spanp"]}`}>Top Up </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={people} />{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={people}
+                    alt="gbr"
+                  />{" "}
                   <span onClick={nav5} className={` ${styles["spanp"]}`}>
                     Profile{" "}
                   </span>
                 </p>
                 <p className={` ${styles["p3"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={logout} />{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={logout}
+                    alt="gbr"
+                  />{" "}
                   <span className={` ${styles["spanp"]}`}>Logout </span>
                 </p>
               </div>
             </div>
-            <div class="col-8">
-              <div class="container">
+            <div className="col-8">
+              <div className="container">
                 <div className={`row ${styles["mid"]}`}>
-                  <div class="col">
+                  <div className="col">
                     <p onClick={nav2} className={` ${styles["bln"]}`}>
                       Balance
                     </p>
                     <p className={` ${styles["idr120"]}`}>{rupiah(balance)}</p>
                     <p className={` ${styles["nump"]}`}>{phone}</p>
                   </div>
-                  <div class="col-6"></div>
-                  <div class="col">
+                  <div className="col-6"></div>
+                  <div className="col">
                     <button onClick={nav1} className={` ${styles["btn-tf"]}`}>
                       ↑ Transfer
                     </button>{" "}
@@ -125,42 +151,55 @@ function Dashboard() {
               </div>
               <div className={`row ${styles["sec-mid"]}`}>
                 <div className={`col-8 ${styles["th-mid"]}`}>
-                  <div class="row">
-                    <div class="col-6">
-                      <Image className={` ${styles["arr-i"]}`} src={upg} />
+                  <div className="row">
+                    <div className="col-6">
+                      <Image
+                        className={` ${styles["arr-i"]}`}
+                        src={upg}
+                        alt="gbr"
+                      />
                       <p className={` ${styles["income"]}`}>Income</p>
                       <p className={` ${styles["tot-inc"]}`}>
                         {rupiah(Number(balance))}
                       </p>
                     </div>
-                    <div class="col-6">
-                      <Image className={` ${styles["arr-i"]}`} src={downm} />
+                    <div className="col-6">
+                      <Image
+                        className={` ${styles["arr-i"]}`}
+                        src={downm}
+                        alt="gbr"
+                      />
                       <p className={` ${styles["income"]}`}>Expense</p>
                       <p className={` ${styles["tot-inc"]}`}>Rp 1.560.000,00</p>
                     </div>
                   </div>
-                  <Image className={` ${styles["chart"]}`} src={chart} />
+                  <Image
+                    className={` ${styles["chart"]}`}
+                    src={chart}
+                    alt="gbr"
+                  />
                 </div>
                 <div className={`col-4 ${styles["ts-mid"]}`}>
-                  <div class="row">
-                    <div class="col-sm-8">
+                  <div className="row">
+                    <div className="col-sm-8">
                       <p className={` ${styles["trans-h"]}`}>
                         Transaction History
                       </p>
-                      {da &&
-                        da.map((user) => {
+                      {dataHistory &&
+                        dataHistory.map((user) => {
+                          console.log(user.id);
                           return (
-                            <UsersHistoryDashboard
-                              name={`${user.firstName} ${user.lastName}`}
-                              type={user.type}
-                              status={user.status}
-                              amount={user.amount}
-                              key={user.id}
-                            />
+                          <UsersHistoryDashboard
+                          key={user.id}
+                          name={`${user.firstName} ${user.lastName}`}
+                          type={user.type}
+                          status={user.status}
+                          amount={user.amount}
+                          />
                           );
                         })}
                     </div>
-                    <div class="col-sm-4">
+                    <div className="col-sm-4">
                       <p onClick={navSeeAll} className={` ${styles["seeall"]}`}>
                         See all
                       </p>

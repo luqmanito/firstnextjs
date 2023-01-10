@@ -77,6 +77,7 @@ const EnterPin = (props) => {
               onClick={() => props.setOpen(!props)}
               className={` ${styles["sec-x"]}`}
               src={x}
+              alt="gbr"
             />
             <p className={` ${styles["p1"]}`}>Enter PIN to transfer</p>
             <p className={` ${styles["p2"]}`}>
@@ -84,7 +85,7 @@ const EnterPin = (props) => {
               money.{" "}
             </p>
             <form action="">
-              <div class="container">
+              <div className="container">
                 <ReactCodeInput
                   type="password"
                   name="pin"

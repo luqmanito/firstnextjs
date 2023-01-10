@@ -35,11 +35,11 @@ function Header() {
             <p> Fazzpay</p>
           </div>
           <div className={`col-6 col-md-4 ${styles["fazzy"]}`}>
-            <div class="row">
+            <div className="row">
               <div className={` col-6 col-md-4 ${styles["wrap-img"]}`}>
-                <Image className={` ${styles["man"]}`} src={man2} />
+                <Image className={` ${styles["man"]}`} src={man2} alt='gb' />
               </div>
-              <div class="col-6 col-md-4">
+              <div className="col-6 col-md-4">
                 <p className={` ${styles["name"]}`}>{user}</p> <br />
                 <p className={` ${styles["num"]}`}>{phone}</p>
               </div>

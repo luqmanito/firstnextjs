@@ -61,28 +61,28 @@ console.log(body);
                   <span className={` ${styles["spanpD"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={up1} />
+                  <Image className={` ${styles["menu"]}`} src={up1} alt="gbr" />
                   <span className={` ${styles["spanpt"]}`}>
                     <b>Transfer</b>
                   </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={plus} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={plus} alt="gbr" />{" "}
                   <span className={` ${styles["spanp"]}`}>Top Up </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={people} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={people} alt="gbr" />{" "}
                   <span className={` ${styles["spanp"]}`}>Profile </span>
                 </p>
                 <p className={` ${styles["p3"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={logout} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={logout} alt="gbr" />{" "}
                   <span className={` ${styles["spanp"]}`}>Logout </span>
                 </p>
               </div>
             </div>
-            <div class="col-8">
+            <div className="col-8">
               <div className={`container ${styles["trans-wrap"]}`}>
-                <div class="row">
+                <div className="row">
                   <p className={` ${styles["transto"]}`}> Edit Phone Number</p>
                   <p className={` ${styles["transti"]}`}>
                   Add at least one phone number for the transfer ID <br /> so you can start transfering your money to another user.

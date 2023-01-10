@@ -15,10 +15,10 @@ function UsersHistory({name, status, amount}) {
 
   return (
     <>
-       <div class="row">
-                <div class="col-8">
+       <div className="row">
+                <div className="col-8">
                   <div className={` ${styles["wr-img"]}`}>
-                    <Image className={` ${styles["man2"]}`} src={man2} />{" "}
+                    <Image className={` ${styles["man2"]}`} src={man2} alt="gbr" />{" "}
                     <span className={` ${styles["suhi"]}`}>{name}</span>{" "}
                     <p className={` ${styles["acc2"]}`}>{status}</p>
                   </div>

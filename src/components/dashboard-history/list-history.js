@@ -5,7 +5,7 @@ import styles from "../dashboard-history/list-history.module.scss";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 
-function UsersHistoryDashboard({ name, type, status, amount, key }) {
+function UsersHistoryDashboard({ name, type, status, amount }) {
   const router = useRouter();
 
   const { ed } = router.query;
@@ -21,12 +21,20 @@ function UsersHistoryDashboard({ name, type, status, amount, key }) {
 
   return (
     <>
-      <div class="row">
-        <div class="col-8">
+      <div className="row">
+        <div className="col-8">
           <div className={` ${styles["wr-img"]}`}>
-            <Image className={` ${styles["man2"]}`} src={man2} />{" "}
+            <Image className={` ${styles["man2"]}`} src={man2} alt="gbr"/>{" "}
             <span className={` ${styles["suhi"]}`}>{name}</span>{" "}
-            <p className={status === 'success' ? ` ${styles["acc2"]}` :` ${styles["acc3"]}`}>{status}</p>
+            <p
+              className={
+                status === "success"
+                  ? ` ${styles["acc2"]}`
+                  : ` ${styles["acc3"]}`
+              }
+            >
+              {status}
+            </p>
           </div>
         </div>
         <div className={`col-4 ${styles["idrhist"]}`}>
@@ -35,7 +43,7 @@ function UsersHistoryDashboard({ name, type, status, amount, key }) {
               type === "topup" ? `${styles["idrplus"]}` : `${styles["idr"]}`
             }
           >
-            {  type === "topup" ? `+${rupiah(amount)}` : `-${rupiah(amount)}`}
+            {type === "topup" ? `+${rupiah(amount)}` : `-${rupiah(amount)}`}
           </p>
         </div>
       </div>

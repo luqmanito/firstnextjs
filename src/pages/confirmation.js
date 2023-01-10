@@ -26,7 +26,7 @@ const History = () => {
   const { details } = useSelector((state) => state.userTransferSlice);
   
   let da = details.details;
-  console.log(confirm.confirm, token);
+  console.log(da);
 
   const date = new Date();
 
@@ -63,33 +63,33 @@ const History = () => {
               <div className={`${styles["list-main"]}`}>
                 <p className={` ${styles["p1"]}`}>
                   {" "}
-                  <Image className={` ${styles["menu"]}`} src={grid1} />
+                  <Image className={` ${styles["menu"]}`} src={grid1} alt="gbr"/>
                   <span onClick={nav2} className={` ${styles["spanpD"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={up1} />
+                  <Image className={` ${styles["menu"]}`} src={up1} alt="gbr"/>
                   <span className={` ${styles["spanpt"]}`}>
                     <b>Transfer</b>
                   </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={plus} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={plus} alt="gbr"/>{" "}
                   <span className={` ${styles["spanp"]}`}>Top Up </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={people} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={people} alt="gbr"/>{" "}
                   <span className={` ${styles["spanp"]}`}>Profile </span>
                 </p>
                 <p className={` ${styles["p3"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={logout} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={logout} alt="gbr"/>{" "}
                   <span className={` ${styles["spanp"]}`}>Logout </span>
                 </p>
               </div>
             </div>
-            <div class="col-8">
+            <div className="col-8">
               <div className={`container ${styles["trans-wrap"]}`}>
-                <div class="row">
-                  <div class="col">
+                <div className="row">
+                  <div className="col">
                     <p className={` ${styles["trans"]}`}> Transfer To</p>
                     <div className={` ${styles["wr-wr"]}`}>
                       {/* <div className={` ${styles["wr-img"]}`}>
@@ -144,7 +144,7 @@ const History = () => {
                   >
                     Continue
                   </button>
-                  <div class="col">
+                  <div className="col">
                     <button className={`${styles["filter"]}`}>
                       -- Select Filter --
                     </button>

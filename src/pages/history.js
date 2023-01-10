@@ -17,7 +17,9 @@ import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import Cookies from "js-cookie";
 
+
 const History = () => {
+  const { history } = useSelector((state) => state.userHistorySlice);
   const router = useRouter();
   const as = () => {
     router.push("/createpin");
@@ -28,7 +30,8 @@ console.log(Cookies.get("tokenUser"));
   const dispatch = useDispatch();
   const [userTransfer, setuserTransfer] = useState(null);
   const [open, setOpen] = useState(false);
-
+  const [dataHistory, setDataHistory] = useState(null)
+  
   const getAllUser = debounce(async () => {
     try {
       const result = await getUsersHistory(Cookies.get("tokenUser"));
@@ -46,13 +49,14 @@ console.log(Cookies.get("tokenUser"));
   // console.log(jsonUserHistory);
 
 
-  const { history } = useSelector((state) => state.userHistorySlice);
-  console.log(history);
+  
+  // console.log(history);
   // const di = jsonUserHistory
   // console.log(di);
-  let da = history.history;
-  console.log(da);
+  // let da = history.history;
+  // console.log(da);
   useEffect(() => {
+    setDataHistory(history.history);
     getAllUser();
   }, []);
 
@@ -64,11 +68,11 @@ console.log(Cookies.get("tokenUser"));
             <p> Fazzpay</p>
           </div>
           <div className={`col-6 col-md-4 ${styles["fazzy"]}`}>
-            <div class="row">
+            <div className="row">
               <div className={` col-6 col-md-4 ${styles["wrap-img"]}`}>
                 <Image className={` ${styles["man"]}`} src={man} />
               </div>
-              <div class="col-6 col-md-4">
+              <div className="col-6 col-md-4">
                 <p className={` ${styles["name"]}`}>Robert Chandler</p> <br />
                 <p className={` ${styles["num"]}`}>+62 8139 3877 7946</p>
               </div>
@@ -86,26 +90,26 @@ console.log(Cookies.get("tokenUser"));
               <div className={`${styles["list-main"]}`}>
                 <p className={` ${styles["p1"]}`}>
                   {" "}
-                  <Image className={` ${styles["menus"]}`} src={grid} />
+                  <Image className={` ${styles["menus"]}`} src={grid} alt="agr"/>
                   <span className={` ${styles["spanpd"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={up} />
+                  <Image className={` ${styles["menu"]}`} src={up} alt="agr" />
                   <span onClick={as} className={` ${styles["spanp"]}`}>
                     {" "}
                     Transfer{" "}
                   </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={plus} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={plus} alt="agr" />{" "}
                   <span className={` ${styles["spanp"]}`}>Top Up </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={people} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={people} alt="agr" />{" "}
                   <span className={` ${styles["spanp"]}`}>Profile </span>
                 </p>
                 <p className={` ${styles["p3"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={logout} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={logout} alt="agr" />{" "}
                   <span className={` ${styles["spanp"]}`}>Logout </span>
                 </p>
               </div>
@@ -114,8 +118,9 @@ console.log(Cookies.get("tokenUser"));
             <div className={`container ${styles["trans-wrap"]}`}>
               <p className={` ${styles["trans"]}`}>Transaction History</p>
 
-              {da &&
-                da.map((user) => {
+              {dataHistory &&
+                dataHistory.map((user) => {
+                  // console.log(user.firstName)
                   return (
                     <UsersHistory
                       name={`${user.firstName} ${user.lastName}`}
@@ -132,7 +137,7 @@ console.log(Cookies.get("tokenUser"));
       </section>
       <Footer />
       {/* <section>
-        <div class="container">
+        <div className="container">
           <div className={`row ${styles["row-end"]}`}>
             <div className={`col ${styles["row-end1"]}`}>
               2020 FazzPay. All right reserved.

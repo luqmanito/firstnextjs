@@ -10,13 +10,13 @@ const PinConfirm = () => {
     <>
       <main className={` ${styles["main-pin"]}`}>
         <section className={` ${styles["sec-pin"]}`}>
-          <Image className={` ${styles["sec-x"]}`} src={x} />
+          <Image className={` ${styles["sec-x"]}`} src={x} alt="gbr"/>
           <p className={` ${styles["p1"]}`}>Topup</p>
           <p className={` ${styles["p2"]}`}>
           Enter the amount of money, and click submit.{" "}
           </p>
           <form action="">
-            <div class="container">
+            <div className="container">
               <input className={` ${styles["btn-topup"]}`} type="text" name="" id="" />
             </div>
           </form>

@@ -76,34 +76,34 @@ Notes = ${content.notes}`, 10, 10
               <div className={`${styles["list-main"]}`}>
                 <p className={` ${styles["p1"]}`}>
                   {" "}
-                  <Image className={` ${styles["menu"]}`} src={grid1} />
+                  <Image className={` ${styles["menu"]}`} src={grid1} alt="gbr"/>
                   <span onClick={nav1} className={` ${styles["spanpD"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={up1} />
+                  <Image className={` ${styles["menu"]}`} src={up1} alt="gbr"/>
                   <span className={` ${styles["spanpt"]}`}>
                     <b>Transfer</b>
                   </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={plus} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={plus} alt="gbr"/>{" "}
                   <span className={` ${styles["spanp"]}`}>Top Up </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={people} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={people} alt="gbr"/>{" "}
                   <span className={` ${styles["spanp"]}`}>Profile </span>
                 </p>
                 <p className={` ${styles["p3"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={logout} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={logout} alt="gbr"/>{" "}
                   <span className={` ${styles["spanp"]}`}>Logout </span>
                 </p>
               </div>
             </div>
-            <div class="col-8">
+            <div className="col-8">
               <div className={`container ${styles["trans-wrap"]}`}>
-                <div class="row">
-                  <div class="col">
-                    <Image className={` ${styles["check-img"]}`} src={check} />
+                <div className="row">
+                  <div className="col">
+                    <Image className={` ${styles["check-img"]}`} src={check} alt="gbr"/>
                     <p className={` ${styles["trans"]}`}> Transfer Success</p>
                     <div className={` ${styles["wr-wr"]}`}>
                       {/* <p className={` ${styles["trans"]}`}> Details</p> */}
@@ -145,7 +145,7 @@ Notes = ${content.notes}`, 10, 10
                   </div>
                   <button onClick={downloadPdf} className={`${styles["contu"]}`}>Download PDF</button>
                   <button onClick={nav1} className={`${styles["conti"]}`}>Continue</button>
-                  <div class="col">
+                  <div className="col">
                     <button className={`${styles["filter"]}`}>
                       -- Select Filter --
                     </button>

@@ -39,8 +39,8 @@ const Resetpw = () => {
           <div className={`col-sm-7 ${styles["sub"]}`}>
             <p>FazzPay</p>
             <div className={`${styles["img-wrap"]}`}>
-              <Image className={`${styles["img1"]}`} src={pic1} />
-              <Image className={`${styles["img2"]}`} src={pic2} />
+              <Image className={`${styles["img1"]}`} src={pic1} alt="gbr"/>
+              <Image className={`${styles["img2"]}`} src={pic2} alt="gbr"/>
             </div>
             <section className={`${styles["sect"]}`}>
               <p className={`${styles["p1"]}`}>

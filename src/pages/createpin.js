@@ -56,8 +56,8 @@ const CreatePin = () => {
           <div className={`col-sm-7 ${styles["sub"]}`}>
             <p>FazzPay</p>
             <div className={`${styles["img-wrap"]}`}>
-              <Image className={`${styles["img1"]}`} src={pic1} />
-              <Image className={`${styles["img2"]}`} src={pic2} />
+              <Image className={`${styles["img1"]}`} src={pic1} alt="gbr"/>
+              <Image className={`${styles["img2"]}`} src={pic2} alt="gbr"/>
             </div>
             <section className={`${styles["sect"]}`}>
               <p className={`${styles["p1"]}`}>
@@ -84,9 +84,9 @@ const CreatePin = () => {
                 FazzPay account password and the PIN.
               </p>
               <form action="">
-                <div class="container">
-                  <div class="row row-cols-2 row-cols-lg-3">
-                    <div class="col-4 col-lg-2">
+                <div className="container">
+                  <div className="row row-cols-2 row-cols-lg-3">
+                    <div className="col-4 col-lg-2">
                       {/* <input
                         onChange={changeHandler1}
                         className={`form-control ${styles["inp-otp"]}`}
@@ -96,7 +96,7 @@ const CreatePin = () => {
                         name="pin1"
                       />
                     </div>
-                    <div class="col-4 col-lg-2">
+                    <div className="col-4 col-lg-2">
                     
                       <input
                         onChange={changeHandler2}
@@ -107,7 +107,7 @@ const CreatePin = () => {
                         name="pin2"
                       />
                     </div>
-                    <div class="col-4 col-lg-2">
+                    <div className="col-4 col-lg-2">
                       <input
                         onChange={changeHandler3}
                         type="text"
@@ -117,7 +117,7 @@ const CreatePin = () => {
                         name="pin3"
                       />
                     </div>
-                    <div class="col-4 col-lg-2">
+                    <div className="col-4 col-lg-2">
                       <input
                         onChange={changeHandler4}
                         type="text"
@@ -127,7 +127,7 @@ const CreatePin = () => {
                         name="pin4"
                       />
                     </div>
-                    <div class="col-4 col-lg-2">
+                    <div className="col-4 col-lg-2">
                       <input
                         onChange={changeHandler5}
                         type="text"
@@ -137,7 +137,7 @@ const CreatePin = () => {
                         name="pin5"
                       />
                     </div>
-                    <div class="col-4 col-lg-2">
+                    <div className="col-4 col-lg-2">
                       <input
                         onChange={changeHandler6}
                         type="text"

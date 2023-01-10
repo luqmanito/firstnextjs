@@ -74,35 +74,35 @@ const History = () => {
               <div className={`${styles["list-main"]}`}>
                 <p className={` ${styles["p1"]}`}>
                   {" "}
-                  <Image className={` ${styles["menu"]}`} src={man2} />
+                  <Image className={` ${styles["menu"]}`} src={man2} alt="grb" />
                   <span onClick={navDashb} className={` ${styles["spanpD"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={up1} />
+                  <Image className={` ${styles["menu"]}`} src={up1} alt="grb" />
                   <span className={` ${styles["spanpt"]}`}>
                     Transfer
                   </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={plus} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={plus} alt="grb" />{" "}
                   <span className={` ${styles["spanp"]}`}>Top Up </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={people} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={people} alt="grb" />{" "}
                   <span className={` ${styles["spanpp"]}`}> <b>Profile</b>  </span>
                 </p>
                 <p className={` ${styles["p3"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={logout} />{" "}
+                  <Image className={` ${styles["menu"]}`} src={logout} alt="grb" />{" "}
                   <span className={` ${styles["spanp"]}`}>Logout </span>
                 </p>
               </div>
             </div>
-            <div class="col-8">
+            <div className="col-8">
               <div className={`container ${styles["trans-wrap"]}`}>
-                <div class="row">
+                <div className="row">
                   <div className={`col ${styles["copl-pro"]}`} >
                     
-                    <Image className={` ${styles["check-img"]}`} src={man2} />
+                    <Image className={` ${styles["check-img"]}`} src={man2} alt="grb" />
                     <p className={` ${styles["edit"]}`}>✎ Edit</p>
                     <p className={` ${styles["rob"]}`}>{user}</p>
                     

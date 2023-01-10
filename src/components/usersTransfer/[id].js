@@ -16,7 +16,7 @@ function Users({name, phone, image, id}) {
   return (
     <>
       <div onClick={nav1} className={` ${styles["wr-img"]}`}>
-        <Image className={` ${styles["man2"]}`} src={man2} />
+        <Image className={` ${styles["man2"]}`} src={man2} alt="gbr" />
         <span className={` ${styles["suhi"]}`}>{name ? name: 'santi'}</span>{" "}
         <p className={` ${styles["acc2"]}`}>{phone ? phone : 'Empty' }</p>
       </div>

@@ -22,7 +22,7 @@ const Modal = (props) => {
       dispatch(setUser_id({ user_id: null }));
       dispatch(setPin({ pin: null }));
       dispatch(setToken({ token: null }));
-      router.push("/login");
+      router.push("/");
     } catch (error) {
       console.log(error);
     }
