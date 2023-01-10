@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styles from "../styles/pinconfirm.module.scss";
 import Image from "next/image";
-import x from "../public/asset/x.png";
+import x from "../../public/asset/x.png";
 
 const PinConfirm = () => {
   const [isPwdShown, setIsPwdShown] = useState(false);

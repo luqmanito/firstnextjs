@@ -4,10 +4,10 @@ import {useRouter} from 'next/router'
 import { signup } from "./api/utils";
 import styles from "../styles/register.module.scss";
 import Image from "next/image";
-import pic1 from "../public/asset/pic1.png";
-import pic2 from "../public/asset/pic2.png";
-import eye from "../public/asset/eye.png";
-import eyedash from "../public/asset/eyeSlash.png";
+import pic1 from "../../public/asset/pic1.png";
+import pic2 from "../../public/asset/pic2.png";
+import eye from "../../public/asset/eye.png";
+import eyedash from "../../public/asset/eyeSlash.png";
 import { toast, ToastContainer } from "react-toastify";
 
 const Register = () => {

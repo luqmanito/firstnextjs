@@ -2,13 +2,13 @@ import React, { Fragment, useEffect, useState } from "react";
 import styles from "../styles/createnewpass.module.scss";
 import {useRouter} from 'next/router'
 import Image from "next/image";
-import pic1 from "../public/asset/pic1.png";
-import pic2 from "../public/asset/pic2.png";
+import pic1 from "../../public/asset/pic1.png";
+import pic2 from "../../public/asset/pic2.png";
 import { createPassApi } from "./api/utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import eye from "../public/asset/eye.png";
-import eyedash from "../public/asset/eyeSlash.png";
+import eye from "../../public/asset/eye.png";
+import eyedash from "../../public/asset/eyeSlash.png";
 
 const Createnewpass = () => {
   const [body, setBody] = useState(false);

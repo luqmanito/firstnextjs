@@ -2,8 +2,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import styles from "../styles/resetpw.module.scss";
 import {useRouter} from 'next/router'
 import Image from "next/image";
-import pic1 from "../public/asset/pic1.png";
-import pic2 from "../public/asset/pic2.png";
+import pic1 from "../../public/asset/pic1.png";
+import pic2 from "../../public/asset/pic2.png";
 import { resetPassApi } from "./api/utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

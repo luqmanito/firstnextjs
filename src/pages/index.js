@@ -10,10 +10,10 @@ import {setToken} from "../redux/reducers/regSlice"
 
 import styles from "../styles/login.module.scss";
 import Image from "next/image";
-import pic1 from "../public/asset/pic1.png";
-import pic2 from "../public/asset/pic2.png";
-import eye from "../public/asset/eye.png";
-import eyedash from "../public/asset/eyeSlash.png";
+import pic1 from "../../public/asset/pic1.png";
+import pic2 from "../../public/asset/pic2.png";
+import eye from "../../public/asset/eye.png";
+import eyedash from "../../public/asset/eyeSlash.png";
 import Cookies from "js-cookie";
 
 
@@ -73,8 +73,8 @@ const Login = () => {
           <div className={`col-sm-7 ${styles["sub"]}`}>
             <p>FazzPay</p>
             <div className={`${styles["img-wrap"]}`}>
-              <Image className={`${styles["img1"]}`} src={pic1} />
-              <Image className={`${styles["img2"]}`} src={pic2} />
+              <Image className={`${styles["img1"]}`} src={pic1}  alt={'gambar'} />
+              <Image className={`${styles["img2"]}`} src={pic2}  alt={'gambar'} />
             </div>
             <section className={`${styles["sect"]}`}>
               <p className={`${styles["p1"]}`}>
@@ -123,6 +123,7 @@ const Login = () => {
                   className={`${styles["icon-eye"]}`}
                   src={isPwdShown ? eye : eyedash}
                   onClick={() => setIsPwdShown(!isPwdShown)}
+                  alt={'gambar'}
                 />
                 <p onClick={nav1} className={` ${styles["pw"]}`}>Forgot password ?</p>
               

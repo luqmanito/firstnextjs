@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styles from "../topUp/topup.module.scss";
 import Image from "next/image";
-import x from "../../public/asset/x.png";
+import x from "../../../public/asset/x.png";
 import { topUpApi } from "../../pages/api/utils";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";

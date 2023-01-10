@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styles from "../styles/history.module.scss";
 import Image from "next/image";
-import grid from "../public/asset/grid.png";
-import up from "../public/asset/up.png";
-import plus from "../public/asset/plus.png";
-import logout from "../public/asset/logout.png";
-import people from "../public/asset/people.png";
+import grid from "../../public/asset/grid.png";
+import up from "../../public/asset/up.png";
+import plus from "../../public/asset/plus.png";
+import logout from "../../public/asset/logout.png";
+import people from "../../public/asset/people.png";
 import { useRouter } from "next/router";
 import UsersHistory from "../components/history-user/detail";
 import { useSelector, useDispatch } from "react-redux";

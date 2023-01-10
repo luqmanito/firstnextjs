@@ -37,7 +37,7 @@ function Header() {
           <div className={`col-6 col-md-4 ${styles["fazzy"]}`}>
             <div class="row">
               <div className={` col-6 col-md-4 ${styles["wrap-img"]}`}>
-                <Image className={` ${styles["man"]}`} src={man} />
+                <Image className={` ${styles["man"]}`} src={man2} />
               </div>
               <div class="col-6 col-md-4">
                 <p className={` ${styles["name"]}`}>{user}</p> <br />

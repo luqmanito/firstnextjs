@@ -5,8 +5,8 @@ import styles from "../styles/createPin.module.scss";
 import {useRouter} from 'next/router'
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import pic1 from "../public/asset/pic1.png";
-import pic2 from "../public/asset/pic2.png";
+import pic1 from "../../public/asset/pic1.png";
+import pic2 from "../../public/asset/pic2.png";
 import { inputPin } from "./api/utils";
 import { toast, ToastContainer } from "react-toastify";
 

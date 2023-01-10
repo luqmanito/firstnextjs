@@ -4,11 +4,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 import styles from "../../styles/input-bank.module.scss";
 import Image from "next/image";
-import grid1 from "../../public/asset/grid1.png";
-import up1 from "../../public/asset/up1.png";
-import plus from "../../public/asset/plus.png";
-import logout from "../../public/asset/logout.png";
-import people from "../../public/asset/people.png";
+import grid1 from "../../../public/asset/grid1.png";
+import up1 from "../../../public/asset/up1.png";
+import plus from "../../../public/asset/plus.png";
+import logout from "../../../public/asset/logout.png";
+import people from "../../../public/asset/people.png";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import {setConfirm} from "../../redux/reducers/confirmSlice"
@@ -16,7 +16,7 @@ import { debounce } from "../../helper/debounce";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { getProfile, getProfile2, getUsers, transferBalance } from "../api/utils";
-import man2 from "../../public/asset/man2.png";
+import man2 from "../../../public/asset/man2.png";
 import Users from "../../components/usersTransfer/[id]";
 import UsersDetail from "../../components/detail-user/detail-user";
 

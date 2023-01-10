@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Image from "next/image";
-import man2 from "../../public/asset/pip.png";
+import man2 from "../../../public/asset/pip.png";
 import styles from "../../styles/history.module.scss";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";

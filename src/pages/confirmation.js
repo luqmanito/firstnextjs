@@ -1,12 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styles from "../styles/confirmation.module.scss";
 import Image from "next/image";
-import grid1 from "../public/asset/grid1.png";
-import up1 from "../public/asset/up1.png";
-import plus from "../public/asset/plus.png";
-import logout from "../public/asset/logout.png";
-import people from "../public/asset/people.png";
-import man2 from "../public/asset/man2.png";
+import grid1 from "../../public/asset/grid1.png";
+import up1 from "../../public/asset/up1.png";
+import plus from "../../public/asset/plus.png";
+import logout from "../../public/asset/logout.png";
+import people from "../../public/asset/people.png";
+import man2 from "../../public/asset/man2.png";
 import EnterPin from "../components/enterpin/enterPin";
 import { useSelector, useDispatch } from "react-redux";
 import UsersDetail from "../components/detail-user/detail-user";
