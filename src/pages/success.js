@@ -24,8 +24,8 @@ const SuccessPage = () => {
   const [phone, setPhone] = useState(null);
   const date = new Date();
   const { details } = useSelector((state) => state.userTransferSlice);
-  let da = details.details;
-
+  // let da = details.details;
+  const [userData, setUserData] = useState("name");
   const [content, setContent] = useState({
     // receiverId: confirm.confirm.id,
     amount: null,
@@ -51,7 +51,7 @@ const SuccessPage = () => {
     doc.text(
   
       `Transaction Status = Success 
-To = ${da.firstName} ${da.lastName} (${da.noTelp})
+To = ${userData.firstName} ${userData.lastName} (${userData.noTelp})
 Amount = Rp.${content.amount}
 Balance Left = Rp.${balance}
 Transaction Time = ${date.toLocaleString()}
@@ -62,6 +62,7 @@ Notes = ${content.notes}`, 10, 10
   };
 
   useEffect(() => {
+    setUserData(details.details)
     getDataProfile();
     setContent(confirm.confirm);
   }, []);
@@ -137,8 +138,8 @@ Notes = ${content.notes}`, 10, 10
                       </div>
                       <p className={` ${styles["transto"]}`}> Transfer to</p>
                       <UsersDetail
-                        name={`${da.firstName} ${da.lastName}`}
-                        phone={da.noTelp}
+                        name={`${userData.firstName} ${userData.lastName}`}
+                        phone={userData.noTelp}
                       />
                     
                     </div>
