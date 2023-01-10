@@ -47,14 +47,16 @@ const Transfer = () => {
   }, 1500);
 
   const { details } = useSelector((state) => state.userTransferSlice);
+  const [userData, setUserData] = useState(null)
 
   useEffect(() => {
     // dispatch(setIsLoading({ isLoading: true }));
+    setUserData(details.details)
     getAllUser();
   }, []);
 
-  let da = details.details;
-  console.log(da);
+  // let da = details.details;
+  // console.log(da);
 
   return (
     <>
@@ -122,8 +124,8 @@ const Transfer = () => {
                       } */}
 
                       {/* <div className={` ${styles["main-menu"]}`}> */}
-                      {da &&
-                        da
+                      {userData &&
+                        userData
                           .filter((user) => {
                             if (searchProduct === "") {
                               return user;

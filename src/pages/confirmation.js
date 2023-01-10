@@ -16,20 +16,23 @@ import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 
 const ConfirmationPage = () => {
-  const [isPwdShown, setIsPwdShown] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [balance, setBalance] = useState(null);
   const dispatch = useDispatch();
   const { user_id } = useSelector((state) => state.regSlice);
   const { token } = useSelector((state) => state.regSlice);
   const { confirm } = useSelector((state) => state.confirmSlice);
   const { details } = useSelector((state) => state.userTransferSlice);
-  
-  let da = details.details;
-  console.log(da);
+  const [userData, setUserData] = useState("name");
+  const [amount, setAmount] = useState(0);
+  const [notes, setNotes] = useState('-');
+  const [isPwdShown, setIsPwdShown] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [balance, setBalance] = useState(null);
+
+  // let da = details.details;
+  // console.log(da);
 
   const date = new Date();
-
+  
   const getDataProfile = async () => {
     try {
       const result = await getProfile(user_id, token);
@@ -46,15 +49,17 @@ const ConfirmationPage = () => {
   const handleLogout = async () => {
     setOpen(!open);
   };
-
+  console.log(userData);
   useEffect(() => {
+    setUserData(details.details);
+    setAmount(confirm.confirm.amount)
+    setNotes(confirm.confirm.notes)
     getDataProfile();
   }, []);
 
   return (
     <>
-
-  <Header/>
+      <Header />
 
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
@@ -63,25 +68,43 @@ const ConfirmationPage = () => {
               <div className={`${styles["list-main"]}`}>
                 <p className={` ${styles["p1"]}`}>
                   {" "}
-                  <Image className={` ${styles["menu"]}`} src={grid1} alt="gbr"/>
-                  <span onClick={nav2} className={` ${styles["spanpD"]}`}>Dashboard</span>
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={grid1}
+                    alt="gbr"
+                  />
+                  <span onClick={nav2} className={` ${styles["spanpD"]}`}>
+                    Dashboard
+                  </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={up1} alt="gbr"/>
+                  <Image className={` ${styles["menu"]}`} src={up1} alt="gbr" />
                   <span className={` ${styles["spanpt"]}`}>
                     <b>Transfer</b>
                   </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={plus} alt="gbr"/>{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={plus}
+                    alt="gbr"
+                  />{" "}
                   <span className={` ${styles["spanp"]}`}>Top Up </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={people} alt="gbr"/>{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={people}
+                    alt="gbr"
+                  />{" "}
                   <span className={` ${styles["spanp"]}`}>Profile </span>
                 </p>
                 <p className={` ${styles["p3"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={logout} alt="gbr"/>{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={logout}
+                    alt="gbr"
+                  />{" "}
                   <span className={` ${styles["spanp"]}`}>Logout </span>
                 </p>
               </div>
@@ -102,15 +125,15 @@ const ConfirmationPage = () => {
                         </p>
                       </div> */}
                       <UsersDetail
-                        name={`${da.firstName} ${da.lastName}`}
-                        phone={da.noTelp}
+                        name={`${userData.firstName} ${userData.lastName}`}
+                        phone={userData.noTelp}
                       />
                       <p className={` ${styles["trans"]}`}> Details</p>
                       <div className={` ${styles["wr-img"]}`}>
                         {/* <Image className={` ${styles["man2"]}`} src={man2} />{" "} */}
                         <span className={` ${styles["susi"]}`}>Amount</span>{" "}
                         <p className={` ${styles["acc3"]}`}>
-                          Rp{confirm.confirm.amount}
+                          Rp{amount}
                         </p>
                       </div>
                       <div className={` ${styles["wr-img"]}`}>
@@ -133,7 +156,7 @@ const ConfirmationPage = () => {
                         {/* <Image className={` ${styles["man2"]}`} src={man2} />{" "} */}
                         <span className={` ${styles["susi"]}`}>Notes</span>{" "}
                         <p className={` ${styles["acc3"]}`}>
-                          {confirm.confirm.notes}
+                          {notes}
                         </p>
                       </div>
                     </div>
@@ -162,7 +185,7 @@ const ConfirmationPage = () => {
         body="Do you really want to log out?"
         confirm={confirm.confirm}
       />
-      <Footer/>
+      <Footer />
     </>
   );
 };

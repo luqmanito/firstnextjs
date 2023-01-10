@@ -17,7 +17,7 @@ const EnterPin = (props) => {
   const router = useRouter();
   const { confirm } = useSelector((state) => state.confirmSlice);
   const { pin } = useSelector((state) => state.regSlice);
-  console.log(pin);
+  console.log(confirm);
 
   const handlerPin = (e) => setBody(Number(`${e}`));
   const { token } = useSelector((state) => state.regSlice);
@@ -26,11 +26,7 @@ const EnterPin = (props) => {
 
   
 
-  const [content, setContent] = useState({
-    receiverId: confirm.confirm.id,
-    amount: null,
-    notes: null,
-  });
+  const [content, setContent] = useState(null);
 
   const checkPin = async () => {
     try {
