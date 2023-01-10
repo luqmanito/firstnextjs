@@ -118,7 +118,7 @@ console.log(Cookies.get("tokenUser"));
             <div className={`container ${styles["trans-wrap"]}`}>
               <p className={` ${styles["trans"]}`}>Transaction History</p>
 
-              {dataHistory &&
+              {/* {dataHistory &&
                 dataHistory.map((user) => {
                   // console.log(user.firstName)
                   return (
@@ -130,7 +130,7 @@ console.log(Cookies.get("tokenUser"));
                       key={user.id}
                     />
                   )
-                })}
+                })} */}
             </div>
           </div>
         </div>
