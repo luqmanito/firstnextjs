@@ -49,6 +49,7 @@ const Transfer = () => {
     try {
       const result = await getUsers(token);
       dispatch(setDetails({ details: result.data.data }));
+      setUserData(result.data.data);
       // setuserTransfer(result.data.data);
     } catch (error) {
       console.log(error);
@@ -106,7 +107,7 @@ const Transfer = () => {
 
   useEffect(() => {
     // userTransfer(details.details)
-    setUserData(details.details);
+    // setUserData(details.details);
     getAllUser();
   }, []);
 

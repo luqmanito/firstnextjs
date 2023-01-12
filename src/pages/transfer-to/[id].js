@@ -45,14 +45,16 @@ const InputBank = () => {
   console.log(body);
 
 
-  const getDataUser = debounce(async () => {
+  const getDataUser = async () => {
     try {
       const result = await getProfile2(id, token);
       dispatch(setDetails({ details: result.data.data }));
+      setUserData(result.data.data);
+      console.log(result.data.data);
     } catch (error) {
       console.log(error);
     }
-  }, 1500);
+  }
 
   const getDataProfile = async () => {
     try {
@@ -86,7 +88,7 @@ const InputBank = () => {
   
 
   useEffect(() => {
-    setUserData(details.details);
+    // setUserData(details.details);
     getDataUser();
     getDataProfile();
   }, []);
@@ -144,7 +146,7 @@ const InputBank = () => {
                     </p>
                     <div className={` ${styles["center-bank"]}`}>
                       <input
-                       onChange={changeHandler1}
+                      onChange={changeHandler1}
                         className={` ${styles["inp-bank"]}`}
                         type="number"
                         placeholder="0"
