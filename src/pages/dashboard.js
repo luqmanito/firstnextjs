@@ -61,13 +61,13 @@ function Dashboard() {
   const [phone, setPhone] = useState(null);
   const [dataHistory, setDataHistory] = useState(null);
   const [imageUser, setImageUser] = useState(null);
-  
+
   const getDataProfile = async () => {
     try {
       const result = await getProfile(user_id, token);
       setPhone(result.data.data.noTelp);
       setBalance(result.data.data.balance);
-      setImageUser(result.data.data.image)
+      setImageUser(result.data.data.image);
     } catch (error) {
       console.log(error);
     }
@@ -77,7 +77,7 @@ function Dashboard() {
     let verify = Cookies.get("tokenUser");
     console.log(verify);
     if (!verify) {
-      return router.push("/")
+      return router.push("/");
     }
   }
 
@@ -120,9 +120,9 @@ function Dashboard() {
                     src={plus}
                     alt="gbr"
                   />{" "}
-                  <span 
-                  onClick={handleTopUp}
-                  className={` ${styles["spanp"]}`}>Top Up </span>
+                  <span onClick={handleTopUp} className={` ${styles["spanp"]}`}>
+                    Top Up{" "}
+                  </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
                   <Image
@@ -140,9 +140,12 @@ function Dashboard() {
                     src={logout}
                     alt="gbr"
                   />{" "}
-                  <span 
-                  onClick={handleLogout}
-                  className={` ${styles["spanp"]}`}>Logout </span>
+                  <span
+                    onClick={handleLogout}
+                    className={` ${styles["spanp"]}`}
+                  >
+                    Logout{" "}
+                  </span>
                 </p>
               </div>
             </div>
@@ -162,9 +165,12 @@ function Dashboard() {
                       ↑ Transfer
                     </button>{" "}
                     <br /> <br />
-                    <button 
-                    onClick={handleTopUp}
-                    className={` ${styles["btn-tu"]}`}>+ Top Up</button>
+                    <button
+                      onClick={handleTopUp}
+                      className={` ${styles["btn-tu"]}`}
+                    >
+                      + Top Up
+                    </button>
                   </div>
                 </div>
               </div>

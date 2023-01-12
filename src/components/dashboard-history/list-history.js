@@ -40,7 +40,7 @@ function UsersHistoryDashboard({ name, type, status, amount }) {
         <div className={`col-4 ${styles["idrhist"]}`}>
           <p
             className={
-              type === "topup" ? `${styles["idrplus"]}` : `${styles["idr"]}`
+              type === "topup" && status === 'pending' ? `${styles["idrp"]}` : type === "topup" && status === 'success' ? `${styles["idrplus"]}` : `${styles["idr"]}`
             }
           >
             {type === "topup" ? `+${rupiah(amount)}` : 

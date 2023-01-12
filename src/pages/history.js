@@ -25,7 +25,7 @@ const History = () => {
   };
 
   // const { token } = useSelector((state) => state.regSlice);
-  console.log(Cookies.get("tokenUser"));
+  
   const dispatch = useDispatch();
   const [userTransfer, setuserTransfer] = useState(null);
   const [open, setOpen] = useState(false);
@@ -46,7 +46,7 @@ const History = () => {
     setDataHistory(history.history);
     getAllUser();
   }, []);
-
+  console.log(dataHistory);
   return (
     <>
       {/* <main className={`container ${styles["two"]}`}>

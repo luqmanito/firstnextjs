@@ -15,7 +15,32 @@
 .sub {
   background: #6379f4;
 }
-
+.idrplus {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: right;
+  color:  #1ec15f;
+  // background-color: #1ec15f;
+  position: absolute;
+  // margin-left: 5%;
+  margin-top: 1%;
+}
+.idrp {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: right;
+  color:  rgb(235, 235, 12);
+  // background-color: #1ec15f;
+  position: absolute;
+  // margin-left: 5%;
+  margin-top: 1%;
+}
 .img1 {
   width: 20vw;
   height: 40vw;
@@ -70,15 +95,6 @@
   margin: auto;
   width: 30vw;
 }
-
-// .p1 {
-//   font-family: "Nunito Sans";
-//   font-style: normal;
-//   font-weight: 700;
-//   font-size: 24px;
-//   line-height: 33px;
-//   color: #ffffff;
-// }
 
 .p2 {
   font-family: "Nunito Sans";
@@ -259,12 +275,14 @@
   //   background-color: purple;
   z-index: -1;
   //   padding: 5%;
-  // width: fit-content;
+  margin: auto;
+  width: fit-content;
 }
 .section-col {
   background-color: #fafcff;
   padding-top: 5%;
   padding-bottom: 5%;
+  width: fit-content;
 }
 
 .list-main {
@@ -305,7 +323,7 @@
 
 .p3 {
   padding: 5%;
-  padding-top: 55%;
+  padding-top: 20%;
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: 400;
@@ -388,6 +406,16 @@
   line-height: 19px;
   color: #7a7886;
 }
+.acc3 {
+  margin-left: 25%;
+  margin-top: -7%;
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: rgb(235, 235, 12);
+}
 .filter {
   background: rgba(58, 61, 66, 0.1);
   border-radius: 12px;
@@ -400,9 +428,12 @@
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  line-height: 22px; 
+  line-height: 22px;
   text-align: right;
-  color: red
+  color:  red;
+  position: absolute;
+  // margin-left: 5%;
+  margin-top: 1%;
 }
 .idrx {
   font-family: "Nunito Sans";
