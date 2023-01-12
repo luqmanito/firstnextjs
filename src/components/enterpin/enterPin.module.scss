@@ -15,9 +15,10 @@
 }
 .sec-pin{
     border: solid;
+    border: none;
     border-radius: 12px;
     width: 25vw;
-    height: 15.5vw;
+    height: fit-content;
     margin: auto;
     background-color: white;
     -webkit-border-radius: 12px;
@@ -69,6 +70,7 @@ color: #3A3D42;
     width: 7vw;
     height: 2vw;
     margin-top: 6%;
+    margin-bottom: 5%;
     margin-left: 67%;
     color: #FFFFFF;
    

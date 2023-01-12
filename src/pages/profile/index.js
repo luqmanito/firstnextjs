@@ -118,6 +118,7 @@ console.log(`from` + baseUrl);
       return router.push("/")
     }
   }
+  console.log(body);
 
   useEffect(() => {
     tokenCheck();
@@ -198,7 +199,7 @@ console.log(`from` + baseUrl);
                         height={100}
                       />
                     </div>
-                    <div className={body === undefined ? `${styles["save-div"]}`: `${styles["save-display"]}`}>
+                    <div className={body.image === null ? `${styles["save-div"]}`: `${styles["save-display"]}`}>
                       <button 
                       onClick={handleSubmit}
                       className={` ${styles["save"]}`}>Save</button>

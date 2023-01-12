@@ -28,8 +28,12 @@ const ConfirmationPage = () => {
   const [open, setOpen] = useState(false);
   const [balance, setBalance] = useState(null);
 
-  // let da = details.details;
-  // console.log(da);
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
 
   const date = new Date();
   
@@ -139,7 +143,7 @@ const ConfirmationPage = () => {
                         {/* <Image className={` ${styles["man2"]}`} src={man2} />{" "} */}
                         <span className={` ${styles["susi"]}`}>Amount</span>{" "}
                         <p className={` ${styles["acc3"]}`}>
-                          Rp{amount}
+                          {rupiah(amount)}
                         </p>
                       </div>
                       <div className={` ${styles["wr-img"]}`}>
@@ -147,7 +151,7 @@ const ConfirmationPage = () => {
                         <span className={` ${styles["susi"]}`}>
                           Balance Left
                         </span>{" "}
-                        <p className={` ${styles["acc3"]}`}>Rp{balance}</p>
+                        <p className={` ${styles["acc3"]}`}>{rupiah(balance)}</p>
                       </div>
                       <div className={` ${styles["wr-img"]}`}>
                         {/* <Image className={` ${styles["man2"]}`} src={man2} />{" "} */}
