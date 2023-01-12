@@ -9,24 +9,27 @@ import logout from "../../public/asset/logout.png";
 import people from "../../public/asset/people.png";
 import PageTitle from "../components/page-tittle/pageTittle";
 import styles from "../styles/dashboard.module.scss";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import man from "../../public/asset/man.png";
 import man2 from "../../public/asset/man2.png";
 import upg from "../../public/asset/upg.png";
 import downm from "../../public/asset/downm.png";
-import { getProfile } from "./api/utils";
+import { getProfile, getUsersHistory } from "./api/utils";
 import UsersHistoryDashboard from "../components/dashboard-history/list-history";
 import Cookies from "js-cookie";
 import { NextResponse } from "next/server";
 import PinConfirm from "../components/topUp/topup";
 import Modal from "../components/logout/logout";
+import { setHistory } from "../redux/reducers/userHistorySlice";
 
 function Dashboard() {
   const [open, setOpen] = useState(false);
   const [openAuth, setOpenAuth] = useState(false);
   const router = useRouter();
+  const dispatch = useDispatch();
   const as = () => {
     router.push("/transfer");
   };
@@ -68,21 +71,34 @@ function Dashboard() {
       setPhone(result.data.data.noTelp);
       setBalance(result.data.data.balance);
       setImageUser(result.data.data.image);
+      console.log(result.data.data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
+  const getAllUser = async () => {
+    try {
+      const result = await getUsersHistory(Cookies.get("tokenUser"));
+      dispatch(setHistory({ history: result.data.data }));
+      setDataHistory(result.data.data)
+      // console.log(result.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   function tokenCheck() {
     let verify = Cookies.get("tokenUser");
-    console.log(verify);
+    // console.log(verify);
     if (!verify) {
       return router.push("/");
     }
   }
 
   useEffect(() => {
-    setDataHistory(history.history);
+    getAllUser()
+    // setDataHistory(history.history);
     getDataProfile();
     tokenCheck();
   }, []);
@@ -212,7 +228,7 @@ function Dashboard() {
                       </p>
                       {dataHistory &&
                         dataHistory.map((user) => {
-                          console.log(user.id);
+                          // console.log(user.id);
                           return (
                             <UsersHistoryDashboard
                               key={user.id}

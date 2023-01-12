@@ -35,7 +35,8 @@ const History = () => {
     try {
       const result = await getUsersHistory(Cookies.get("tokenUser"));
       dispatch(setHistory({ history: result.data.data }));
-      console.log(result.data.data);
+      setDataHistory(result.data.data)
+      // console.log(result.data.data);
       // Cookies.set("userHistory", JSON.stringify(result.data.data));
     } catch (error) {
       console.log(error);
@@ -43,7 +44,7 @@ const History = () => {
   }, 1500);
 
   useEffect(() => {
-    setDataHistory(history.history);
+    // setDataHistory(history.history);
     getAllUser();
   }, []);
   console.log(dataHistory);

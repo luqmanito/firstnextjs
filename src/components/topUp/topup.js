@@ -27,7 +27,7 @@ const PinConfirm = (props) => {
 
   const { token } = useSelector((state) => state.regSlice);
 
-  console.log(body);
+  // console.log(body);
 
   const finalBody = { amount: body };
 
