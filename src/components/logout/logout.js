@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { toast, ToastContainer } from "react-toastify";
 import { setUser_id, setPin, setToken } from "../../redux/reducers/regSlice";
 import "react-toastify/dist/ReactToastify.css";
-
+import Cookies from "js-cookie";
 const Modal = (props) => {
   const { token } = useSelector((state) => state.regSlice);
   const router = useRouter();
@@ -15,6 +15,7 @@ const Modal = (props) => {
     console.log(token);
     try {
       const result = await logoutApi(token);
+      Cookies.remove('tokenUser')
       toast.success("Logout Succesfully!", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 300,

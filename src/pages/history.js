@@ -17,7 +17,6 @@ import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import Cookies from "js-cookie";
 
-
 const History = () => {
   const { history } = useSelector((state) => state.userHistorySlice);
   const router = useRouter();
@@ -26,35 +25,23 @@ const History = () => {
   };
 
   // const { token } = useSelector((state) => state.regSlice);
-console.log(Cookies.get("tokenUser"));
+  console.log(Cookies.get("tokenUser"));
   const dispatch = useDispatch();
   const [userTransfer, setuserTransfer] = useState(null);
   const [open, setOpen] = useState(false);
-  const [dataHistory, setDataHistory] = useState(null)
-  
+  const [dataHistory, setDataHistory] = useState(null);
+
   const getAllUser = debounce(async () => {
     try {
       const result = await getUsersHistory(Cookies.get("tokenUser"));
       dispatch(setHistory({ history: result.data.data }));
+      console.log(result.data.data);
       // Cookies.set("userHistory", JSON.stringify(result.data.data));
     } catch (error) {
       console.log(error);
     }
   }, 1500);
 
-  // console.log(Cookies.get("userHistory"));
-  // console.log(Cookies.get("tokenUser"));
-
-  // const jsonUserHistory = JSON.parse(Cookies.get("userHistory"))
-  // console.log(jsonUserHistory);
-
-
-  
-  // console.log(history);
-  // const di = jsonUserHistory
-  // console.log(di);
-  // let da = history.history;
-  // console.log(da);
   useEffect(() => {
     setDataHistory(history.history);
     getAllUser();
@@ -90,7 +77,11 @@ console.log(Cookies.get("tokenUser"));
               <div className={`${styles["list-main"]}`}>
                 <p className={` ${styles["p1"]}`}>
                   {" "}
-                  <Image className={` ${styles["menus"]}`} src={grid} alt="agr"/>
+                  <Image
+                    className={` ${styles["menus"]}`}
+                    src={grid}
+                    alt="agr"
+                  />
                   <span className={` ${styles["spanpd"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
@@ -101,15 +92,27 @@ console.log(Cookies.get("tokenUser"));
                   </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={plus} alt="agr" />{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={plus}
+                    alt="agr"
+                  />{" "}
                   <span className={` ${styles["spanp"]}`}>Top Up </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={people} alt="agr" />{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={people}
+                    alt="agr"
+                  />{" "}
                   <span className={` ${styles["spanp"]}`}>Profile </span>
                 </p>
                 <p className={` ${styles["p3"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={logout} alt="agr" />{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={logout}
+                    alt="agr"
+                  />{" "}
                   <span className={` ${styles["spanp"]}`}>Logout </span>
                 </p>
               </div>
@@ -129,7 +132,7 @@ console.log(Cookies.get("tokenUser"));
                       type={user.type}
                       key={user.id}
                     />
-                  )
+                  );
                 })}
             </div>
           </div>

@@ -43,7 +43,8 @@ function UsersHistoryDashboard({ name, type, status, amount }) {
               type === "topup" ? `${styles["idrplus"]}` : `${styles["idr"]}`
             }
           >
-            {type === "topup" ? `+${rupiah(amount)}` : `-${rupiah(amount)}`}
+            {type === "topup" ? `+${rupiah(amount)}` : 
+            `-${rupiah(amount)}`}
           </p>
         </div>
       </div>

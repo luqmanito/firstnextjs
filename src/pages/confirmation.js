@@ -109,10 +109,16 @@ const ConfirmationPage = () => {
                 </p>
               </div>
             </div>
-            <div className="col-8">
+            <div className={`col-8 ${styles["colcol"]}`}>
               <div className={`container ${styles["trans-wrap"]}`}>
-                <div className="row">
-                  <div className="col">
+                <div 
+                className={`row ${styles["col-main"]}`}
+                // className="row"
+                >
+                  <div 
+                  className={`col ${styles["col-main"]}`}
+                  // className="col"
+                  >
                     <p className={` ${styles["trans"]}`}> Transfer To</p>
                     <div className={` ${styles["wr-wr"]}`}>
                       {/* <div className={` ${styles["wr-img"]}`}>

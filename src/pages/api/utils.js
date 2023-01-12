@@ -77,7 +77,8 @@ export const createPassApi = (body) => {
 };
 
 export const getUsers = (token) => {
-  const URL = baseUrl + `/user?page=1&limit=4&search=ma&sort=firstName ASC`;
+  const URL = baseUrl + `/user?page=1&limit=150&search=ma&sort=firstName ASC`;
+  console.log(URL);
   return axios.get(URL, {
     headers: {
       Authorization: `Bearer ${token.token}`,
@@ -131,4 +132,12 @@ export const checkPinUser = (body, token) => {
   });
 };
 
-
+export const editProfile = (data, token, user_id) => {
+  console.log(user_id);
+  const URL = baseUrl + `/user/image/${user_id.user_id}`
+  return axios.patch(URL, data, {
+    headers: {
+      Authorization: `Bearer ${token.token}`
+    }
+  })
+}

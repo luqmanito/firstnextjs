@@ -10,6 +10,18 @@ const PinConfirm = (props) => {
   const [body, setBody] = useState(null);
   const router = useRouter();
 
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
+
+  function formatNumber(n) {
+    // format number 1000000 to 1,234,567
+    return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
+
   const handlerPin = (e) =>
     setBody({ [e.target.name]: Number(e.target.value) });
 
@@ -24,7 +36,7 @@ const PinConfirm = (props) => {
     try {
       const result = await topUpApi(body, token);
       console.log(result.data.data.redirectUrl);
-      window.open(`${result.data.data.redirectUrl}`)
+      window.open(`${result.data.data.redirectUrl}`);
       // router.push(`${result.data.data.redirectUrl}`);
     } catch (error) {
       console.log(error);
@@ -48,13 +60,21 @@ const PinConfirm = (props) => {
             </p>
             <form action="">
               <div className="container">
+                {/* <span
+                className={`${styles["currency"]}`}
+                >Rp. */}
                 <input
+                  // pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
+                  pattern="[0-9.,]+"
+                  required data-type="number"
+                  placeholder="Rp1,000,000.00"
                   className={` ${styles["btn-topup"]}`}
-                  type="text"
+                  type="number"
                   name="amount"
                   id=""
                   onChange={handlerPin}
                 />
+                {/* </span> */}
               </div>
             </form>
             <button onClick={handleOk} className={` ${styles["btn-pin"]}`}>

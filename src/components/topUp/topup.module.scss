@@ -13,11 +13,18 @@
 .inp-otp{ 
     text-align: center;
 }
+.currency {
+    border: 1px inset #ccc;
+}
+.currency input {
+    border: 0;
+}
 .sec-pin{
     border: solid;
+    border: none;
     border-radius: 12px;
     width: 25vw;
-    height: 15.5vw;
+    height: 18.5vw;
     margin: auto;
     background-color: white;
     -webkit-border-radius: 12px;

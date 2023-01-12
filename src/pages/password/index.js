@@ -9,24 +9,35 @@ import people from "../../../public/asset/people.png";
 import eye from "../../../public/asset/eye.png";
 import eyedash from "../../../public/asset/eyeSlash.png";
 import { useSelector, useDispatch } from "react-redux";
-import {  passApi } from "../api/utils";
+import { passApi } from "../api/utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 
 const ChangePass = () => {
-  
   const { token } = useSelector((state) => state.regSlice);
   const { user_id } = useSelector((state) => state.regSlice);
 
   const [body, setBody] = useState({});
+  const [valuepw1, setValuepw1] = useState();
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [isPwdShown2, setIsPwdShown2] = useState(false);
   const [isPwdShown3, setIsPwdShown3] = useState(false);
+  const [disableButton, setDisableButton] = useState(true);
+  const [disableButtonPw, setDisableButtonPw] = useState(true);
+
+  const handleChange = () => {
+    setDisableButton(!disableButton);
+  };
+  const handleChange2 = () => {
+    setDisableButtonPw(!disableButtonPw);
+  };
 
   const changeHandler = (e) =>
     setBody({ ...body, [e.target.name]: e.target.value });
+  // console.log(body);
+  // setValuepw1(e.target.value)
   console.log(body);
 
   const changePass = async () => {
@@ -45,12 +56,9 @@ const ChangePass = () => {
     }
   };
 
-
-
-
   return (
     <>
-    <Header/>
+      <Header />
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
@@ -58,25 +66,41 @@ const ChangePass = () => {
               <div className={`${styles["list-main"]}`}>
                 <p className={` ${styles["p1"]}`}>
                   {" "}
-                  <Image className={` ${styles["menu"]}`} src={grid1} alt="gbr"/>
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={grid1}
+                    alt="gbr"
+                  />
                   <span className={` ${styles["spanpD"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={up1} alt="gbr"/>
+                  <Image className={` ${styles["menu"]}`} src={up1} alt="gbr" />
                   <span className={` ${styles["spanpt"]}`}>
                     <b>Transfer</b>
                   </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={plus} alt="gbr"/>{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={plus}
+                    alt="gbr"
+                  />{" "}
                   <span className={` ${styles["spanp"]}`}>Top Up </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={people} alt="gbr"/>{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={people}
+                    alt="gbr"
+                  />{" "}
                   <span className={` ${styles["spanp"]}`}>Profile </span>
                 </p>
                 <p className={` ${styles["p3"]}`}>
-                  <Image className={` ${styles["menu"]}`} src={logout} alt="gbr"/>{" "}
+                  <Image
+                    className={` ${styles["menu"]}`}
+                    src={logout}
+                    alt="gbr"
+                  />{" "}
                   <span className={` ${styles["spanp"]}`}>Logout </span>
                 </p>
               </div>
@@ -89,15 +113,22 @@ const ChangePass = () => {
                     You must enter your current password and then <br /> type
                     your new password twice.
                   </p>
-                  <div className={`col ${styles["wr-pw"]}`} >
+                  <div className={`col ${styles["wr-pw"]}`}>
                     <div className={` ${styles["wr-wr"]}`}>
                       <input
+                        value={valuepw1}
+                        onClick={handleChange}
                         onChange={changeHandler}
-                        className={` ${styles["pwd"]}`}
+                        className={
+                          body.oldPassword == undefined || body.oldPassword == ''
+                            ? `${styles["pwd"]}`
+                            : `${styles["pwdselect"]}`
+                        }
                         type={isPwdShown ? "text" : "password"}
                         placeholder="🔒 Current password"
                         name="oldPassword"
-                      /> <br />
+                      />{" "}
+                      <br />
                       <Image
                         className={`${styles["icon-eye"]}`}
                         src={isPwdShown ? eye : eyedash}
@@ -106,11 +137,16 @@ const ChangePass = () => {
                       />
                       <input
                         onChange={changeHandler}
-                        className={` ${styles["pwd"]}`}
+                        className={
+                          body.newPassword == undefined || body.newPassword == ''
+                            ? `${styles["pwd"]}`
+                            : `${styles["pwdselect"]}`
+                        }
                         type={isPwdShown2 ? "text" : "password"}
                         placeholder="🔒 New password"
                         name="newPassword"
-                      /> <br />
+                      />{" "}
+                      <br />
                       <Image
                         className={`${styles["icon-eye"]}`}
                         src={isPwdShown2 ? eye : eyedash}
@@ -119,32 +155,51 @@ const ChangePass = () => {
                       />
                       <input
                         onChange={changeHandler}
-                        className={` ${styles["pwd"]}`}
+                        className={
+                          body.confirmPassword == undefined || body.confirmPassword == ''
+                            ? `${styles["pwd"]}`
+                            : `${styles["pwdselect"]}`
+                        }
                         type={isPwdShown3 ? "text" : "password"}
                         placeholder="🔒 Repeat new password"
                         name="confirmPassword"
-                      /> <br />
+                      />{" "}
+                      <br />
                       <Image
                         className={`${styles["icon-eye1"]}`}
                         src={isPwdShown3 ? eye : eyedash}
                         onClick={() => setIsPwdShown3(!isPwdShown3)}
                         alt="gbr"
                       />
-                      <button onClick={changePass} className={` ${styles["btn-pw"]}`}>
+                      <button
+                        onClick={changePass}
+                        className={
+                          body.oldPassword !== undefined && body.oldPassword !== '' &&
+                          body.newPassword !== undefined && body.newPassword !== '' &&
+                          body.confirmPassword !== undefined &&  body.confirmPassword !== ''
+                            ? ` ${styles["btn-pw2"]}`
+                            : ` ${styles["btn-pw"]}`
+                        }
+                        disabled={
+                          body.oldPassword !== undefined && body.oldPassword !== '' &&
+                          body.newPassword !== undefined && body.newPassword !== '' &&
+                          body.confirmPassword !== undefined &&  body.confirmPassword !== ''
+                            ? false
+                            : true
+                        }
+                      >
                         Change Password
                       </button>
                       <ToastContainer />
                     </div>
                   </div>
-
-                
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 };

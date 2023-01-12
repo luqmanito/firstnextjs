@@ -245,7 +245,7 @@
 }
 
 .section-main {
-  background-color: #e5e5e5
+  background-color: #e5e5e5;
   //   margin-bottom: 30%;
   // padding-top: 5%;
   // margin: auto;
@@ -257,7 +257,7 @@
 }
 
 .section-row {
-  //   background-color: purple;
+  margin: auto;
   z-index: -1;
   //   padding: 5%;
   // width: fit-content;
@@ -266,7 +266,7 @@
   // background-color: #0a61e3;
   padding-top: 5%;
   padding-bottom: 5%;
-  padding-left: 5.5%;
+  padding-left: 8%;
   width: fit-content;
   // justify-content: center;
   // justify-items: center;
@@ -286,7 +286,7 @@
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
   // text-align: center;
-  // float: right;
+  // margin-left: 15%;
   padding-top: 10%;
 }
 
@@ -303,6 +303,7 @@
 
 .p2 {
   padding: 5%;
+  padding-top: 13%;
   font-family: "Nunito Sans";
   font-style: normal;
   font-weight: 400;
@@ -325,7 +326,6 @@
 .spanp {
   padding-left: 5%;
   cursor: pointer;
- 
 }
 .menu {
   width: 1.5vw;
@@ -416,19 +416,19 @@
 .price {
   margin-top: -25%;
 }
-.mid{
-  background: #6379F4;
+.mid {
+  background: #6379f4;
   // border-radius: 20px;
   border-radius: 12px;
-  
+
   margin-top: 8%;
 }
-.sec-mid{
+.sec-mid {
   // background-color: #3a3d42;
   margin-top: 2%;
 }
-.th-mid{
-  background-color: #FFFFFF;
+.th-mid {
+  background-color: #ffffff;
   border-radius: 12px;
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
@@ -440,57 +440,53 @@
   -webkit-box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
 }
-.ts-mid{
-  background-color: #FFFFFF;
+.ts-mid {
+  background-color: #ffffff;
   border-radius: 12px;
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
   margin-left: 3%;
-  width: 17vw;
+  width: 28.5vw;
   box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
 }
-.bln{
-  font-family: 'Nunito Sans';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-margin-top: 15%;
-margin-left: 15%;
+.bln {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 15%;
+  margin-left: 15%;
 
-
-color: #E0E0E0;
-
+  color: #e0e0e0;
 }
-.idr120{
-  font-family: 'Nunito Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 25px;
-line-height: 55px;
-margin-left: 15%;
-margin-top: -5%;
+.idr120 {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 55px;
+  margin-left: 15%;
+  margin-top: -5%;
 
-color: #FFFFFF;
-
+  color: #ffffff;
 }
-.nump{
-  font-family: 'Nunito Sans';
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
-line-height: 19px;
-margin-left: 15%;
+.nump {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  margin-left: 15%;
 
-
-color: #DFDCDC;
+  color: #dfdcdc;
 }
-.btn-tf{
+.btn-tf {
   background: rgba(255, 255, 255, 0.2);
-  font-family: 'Nunito Sans';
+  font-family: "Nunito Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -498,13 +494,13 @@ color: #DFDCDC;
   margin-top: 25%;
   margin-left: -15%;
   width: 8vw;
-  color: #FFFFFF;
-border: 1px solid #FFFFFF;
-border-radius: 10px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
 }
-.btn-tu{
+.btn-tu {
   background: rgba(255, 255, 255, 0.2);
-  font-family: 'Nunito Sans';
+  font-family: "Nunito Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -512,119 +508,106 @@ border-radius: 10px;
   margin-top: -15%;
   margin-left: -15%;
   width: 8vw;
-  color: #FFFFFF;
-border: 1px solid #FFFFFF;
-border-radius: 10px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
 }
-.arr-i{
+.arr-i {
   margin-top: 15%;
   margin-left: 15%;
   width: 1vw;
   height: 1vw;
 }
-.income{
-  font-family: 'Nunito Sans';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 19px;
-margin-top: 5%;
+.income {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 5%;
   margin-left: 15%;
 
-
-color: #6A6A6A;
-
+  color: #6a6a6a;
 }
-.tot-inc{
-  font-family: 'Nunito Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 25px;
-margin-top: 5%;
+.tot-inc {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 25px;
+  margin-top: 5%;
   margin-left: 15%;
-
-
-/* Zwallet/Dark */
-
-color: #3A3D42;
-
+  width: 20vw;
+  color: #3a3d42;
 }
-.chart{
+.chart {
   width: 19vw;
   height: 14vw;
   margin-left: 11%;
 }
-.trans-h{
-  font-family: 'Nunito Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 25px;
-margin-top: 15%;
+.trans-h {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  margin-top: 15%;
   margin-left: 5%;
 
+  /* Zwallet/Dark */
 
-/* Zwallet/Dark */
-
-color: #3A3D42;
-
+  color: #3a3d42;
 }
-.seeall{
+.seeall {
   margin-top: 40%;
   margin-left: 30%;
-  font-family: 'Nunito Sans';
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
-line-height: 19px;
-cursor: pointer;
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  cursor: pointer;
 
+  /* Zwallet/Primary */
 
-/* Zwallet/Primary */
-
-color: #6379F4;
+  color: #6379f4;
 }
-.main-p{
-  font-family: 'Nunito Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 22px;
-margin-top: 15%;
+.main-p {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  margin-top: 15%;
   margin-left: 5%;
 
-
-color: #4D4B57;
-
+  color: #4d4b57;
 }
-.sub-p{
+.sub-p {
   margin-top: -10%;
   margin-left: 40%;
-  font-family: 'Nunito Sans';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 19px;
-/* identical to box height */
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  /* identical to box height */
 
-
-color: #7A7886;
+  color: #7a7886;
 }
-.sub-min{
-  font-family: 'Nunito Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 22px;
-margin-top: 73%;
+.sub-min {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  margin-top: 73%;
 
-text-align: right;
+  text-align: right;
 
-color: #1EC15F;
-
+  color: #1ec15f;
 }
-.mantiny{
+.mantiny {
   width: 3vw;
   height: 3vw;
   // margin-left: 15%;

@@ -9,12 +9,16 @@ import pic2 from "../../public/asset/pic2.png";
 import eye from "../../public/asset/eye.png";
 import eyedash from "../../public/asset/eyeSlash.png";
 import { toast, ToastContainer } from "react-toastify";
+import Cookies from "js-cookie";
+
 
 const Register = () => {
   const router = useRouter()
+  
   const [isPwdShown, setIsPwdShown] = useState(false);
   const [body, setBody] = useState({});
-
+   
+  
   const changeHandler = (e) =>
   setBody({ ...body, [e.target.name]: e.target.value });
   console.log(body);
@@ -36,6 +40,22 @@ const Register = () => {
       console.log(error);
     }
   };
+
+  const navSignIn = () => {
+    router.push("/");
+  };
+
+  function tokenCheck() {
+    let verify = Cookies.get("tokenUser");
+    console.log(verify);
+    if (verify) {
+      return router.push("/dashboard")
+    }
+  }
+
+  useEffect(() => {
+    tokenCheck()
+  }, [])
 
   return (
     <>
@@ -114,8 +134,10 @@ const Register = () => {
               
               <p className={` ${styles["acc"]}`}>
                 {" "}
-                Already have an account? Let`&apos;`s{" "}
-                <span className={` ${styles["sign"]}`}>Login</span>{" "}
+                Already have an account? Let&apos;s{" "}
+                <span 
+                onClick={navSignIn}
+                className={` ${styles["sign"]}`}>Login</span>{" "}
               </p>
             </section>
           </div>

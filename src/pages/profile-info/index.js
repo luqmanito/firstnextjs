@@ -41,7 +41,7 @@ const ProfileDetail = () => {
   };
 
   const navPhone = () => {
-    router.push("/changephone/modifynum");
+    router.push("/profile-info/phone-number");
   };
 
   useEffect(() => {
@@ -93,7 +93,7 @@ const ProfileDetail = () => {
                     <br /> If you want to make changes on your information,{" "}
                     <br /> contact our support.
                   </p>
-                  <div className="col">
+                  {/* <div className="col"> */}
                     <div className={` ${styles["wr-wr"]}`}>
                       <div className={` ${styles["wr-img"]}`}>
                         <span className={` ${styles["susi"]}`}>First Name</span>{" "}
@@ -124,7 +124,7 @@ const ProfileDetail = () => {
                         </p>
                       </div>
                     </div>
-                  </div>
+                  {/* </div> */}
 
                   <div className="col">
                     <button className={`${styles["filter"]}`}>

@@ -292,8 +292,13 @@
     background-color: #fafcff;
     padding-top: 5%;
     padding-bottom: 5%;
+    width: fit-content;
+    margin-left: 15vw;
   }
-  
+  .trans-main{
+    width: fit-content;
+    margin-top: 1.5%;
+  }
   .list-main {
     background-color: white;
     box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
@@ -307,7 +312,7 @@
     -ms-border-radius: 12px;
     -o-border-radius: 12px;
     float: right;
-    padding-top: 10%;
+    // padding-top: 10%;
   //   padding-bottom: 5%;
   }
   
@@ -333,7 +338,7 @@
   
   .p3 {
     padding: 5%;
-    margin-top: 35%;
+    margin-top: 13%;
     font-family: "Nunito Sans";
     font-style: normal;
     font-weight: 400;
@@ -401,7 +406,8 @@
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
-    width: fit-content;
+    width: 40vw;
+    float: left;
   }
   .man2 {
     width: 3vw;
@@ -552,7 +558,7 @@ color: #6379F4;
     line-height: 25px;
     text-align: center;
     color: #88888f;
-    
+    border: none;
   }
   .btn-px {
     margin-top: 7%;
@@ -570,7 +576,7 @@ color: #6379F4;
     line-height: 25px;
     text-align: center;
     color: #FFFFFF;
-    
+    border: none;
   }
   .cdecde{
     margin-top: 10%;

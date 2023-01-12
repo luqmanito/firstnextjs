@@ -7,6 +7,7 @@ import pic2 from "../../public/asset/pic2.png";
 import { resetPassApi } from "./api/utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Cookies from "js-cookie";
 
 const Resetpw = () => {
   const [body, setBody] = useState(false);
@@ -31,6 +32,18 @@ const Resetpw = () => {
       console.log(error);
     }
   };
+
+  function tokenCheck() {
+    let verify = Cookies.get("tokenUser");
+    console.log(verify);
+    if (verify) {
+      return router.push("/dashboard")
+    }
+  }
+
+  useEffect(() => {
+    tokenCheck()
+  }, [])
 
   return (
     <>

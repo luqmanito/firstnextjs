@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import styles from "../../styles/modify.module.scss";
+import styles from "../../styles/modifynum.module.scss";
 import Image from "next/image";
 import grid1 from "../../../public/asset/grid1.png";
 import up1 from "../../../public/asset/up.png";
@@ -9,34 +9,35 @@ import people from "../../../public/asset/people.png";
 import { useSelector, useDispatch } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-
-import { checkPinUser, getProfile } from "../api/utils";
+import { jsPDF } from "jspdf";
+import { updatePhone } from "../api/utils";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
+import { useRouter } from "next/router";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
-const PinPage = () => {
+const ChangeNum = () => {
 
-  const [body, setBody] = useState({});
+  const { user_id } = useSelector((state) => state.regSlice);
   const { token } = useSelector((state) => state.regSlice);
+  const [body, setBody] = useState({});
   const router = useRouter();
+  const changeHandler = (e) =>
+  setBody({ ...body, [e.target.name]: e.target.value });
+console.log(body);
 
-  const handlerPin = (e) => setBody(Number(`${e}`));
-  console.log(body);
-
-  const checkPin = async () => {
+  const submitHandler = async () => {
     try {
-      const result = await checkPinUser(body, token);
-      console.log(result, "from checkpin");
-      toast.error("PIN Correct!", {
+      const result = await updatePhone( user_id, body, token);
+      console.log(result);
+      toast.success("Phone Number Updated!", {
         position: toast.POSITION.TOP_CENTER,
-        autoClose: 2000,
+        autoClose: 1500,
       });
-      router.push("/changepin/final");
+      // router.push("/prof-detail/profile-info");
     } catch (error) {
-      toast.error("Input PIN is wrong!", {
+      toast.error("Update Failed!", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 2000,
       });
@@ -44,6 +45,7 @@ const PinPage = () => {
     }
   };
 
+ 
 
   return (
     <>
@@ -55,7 +57,7 @@ const PinPage = () => {
               <div className={`${styles["list-main"]}`}>
                 <p className={` ${styles["p1"]}`}>
                   {" "}
-                  <Image className={` ${styles["menu"]}`} src={grid1} alt="gbr" />
+                  <Image className={` ${styles["menu"]}`} src={grid1} alt="gbr"/>
                   <span className={` ${styles["spanpD"]}`}>Dashboard</span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
@@ -81,25 +83,24 @@ const PinPage = () => {
             <div className="col-8">
               <div className={`container ${styles["trans-wrap"]}`}>
                 <div className="row">
-                  <p className={` ${styles["transto"]}`}> Change PIN</p>
+                  <p className={` ${styles["transto"]}`}> Edit Phone Number</p>
                   <p className={` ${styles["transti"]}`}>
-                    Enter your current 6 digits Fazzpay PIN below <br /> to
-                    continue to the next steps.
+                  Add at least one phone number for the transfer ID <br /> so you can start transfering your money to another user.
                   </p>
                   <div className={`col ${styles["wr-pw"]}`}>
                     <div className={styles.cdecde}>
-                    <ReactCodeInput
-                    
-                      type="password"
-                      name="pin"
-                      fields={6}
-                      onChange={handlerPin}
-                    />
+                    <input
+                  onChange={changeHandler}
+                  className={` ${styles["inp"]}`}
+                  type="text"
+                  placeholder="📞+62 Enter your phone number"
+                  name="noTelp"
+                />
                     </div>
                   </div>
                   
                 </div>
-                <button onClick={checkPin} className={` ${styles["btn-pw"]}`}>
+                <button onClick={submitHandler} className={body.noTelp === undefined || body.noTelp === '' ? `${styles["btn-pw"]}`:`${styles["btn-pw1"]}`}>
                   Continue
                   </button>
                   <ToastContainer />
@@ -113,4 +114,4 @@ const PinPage = () => {
   );
 };
 
-export default PinPage;
+export default ChangeNum;

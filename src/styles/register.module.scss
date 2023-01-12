@@ -1,6 +1,9 @@
 .one {
     color: aqua;
   }
+  .sign{
+    cursor: pointer;
+  }
   .two {
     background-color: aliceblue;
   }
@@ -147,6 +150,7 @@
     line-height: 25px;
     text-align: center;
     color: #88888f;
+    border: none;
   }
   
   .acc {

@@ -32,6 +32,13 @@ const SuccessPage = () => {
     notes: null,
   });
 
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
+
   const nav1 = () => {
     router.push("/dashboard");
   };
@@ -112,7 +119,7 @@ Notes = ${content.notes}`, 10, 10
                         {/* <Image className={` ${styles["man2"]}`} src={man2} />{" "} */}
                         <span className={` ${styles["susi"]}`}>Amount</span>{" "}
                         <p className={` ${styles["acc3"]}`}>
-                          Rp{content.amount}
+                          {rupiah(content.amount)}
                         </p>
                       </div>
                       <div className={` ${styles["wr-img"]}`}>
@@ -120,7 +127,7 @@ Notes = ${content.notes}`, 10, 10
                         <span className={` ${styles["susi"]}`}>
                           Balance Left
                         </span>{" "}
-                        <p className={` ${styles["acc3"]}`}>Rp{balance}</p>
+                        <p className={` ${styles["acc3"]}`}>{rupiah(balance)}</p>
                       </div>
                       <div className={` ${styles["wr-img"]}`}>
                         {/* <Image className={` ${styles["man2"]}`} src={man2} />{" "} */}

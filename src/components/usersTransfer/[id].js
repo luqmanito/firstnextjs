@@ -10,7 +10,7 @@ function Users({name, phone, image, id}) {
 
   const {ed} = router.query
   const nav1 = () => {
-    router.push(`/input-bank/${id}`);
+    router.push(`/transfer-to/${id}`);
   };
 
   return (

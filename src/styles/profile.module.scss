@@ -18,7 +18,28 @@ body.active-modal {
 .sub {
   background: #6379f4;
 }
-
+.save-div{
+  text-align: center;
+  display: none;
+}
+.save-display{
+  text-align: center;
+  
+}
+.save{
+  margin-top: 1%;
+  background: #6379f4;
+  color: white;
+  text-align: center;
+  width: 4vw;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
 .img1 {
   width: 20vw;
   height: 40vw;
@@ -219,7 +240,7 @@ body.active-modal {
 }
 
 .man-wrap {
-  text-align: end;
+  text-align: center;
 }
 
 .row-f {
@@ -275,12 +296,14 @@ body.active-modal {
   //   background-color: purple;
   z-index: -1;
   //   padding: 5%;
-  // width: fit-content;
+ margin: auto;
 }
 .section-col {
   background-color: #fafcff;
   padding-top: 5%;
   padding-bottom: 5%;
+  width: fit-content;
+  margin-left: 5.5vw;
 }
 
 .copl-pro {
@@ -327,9 +350,9 @@ color: #7A7886;
   text-align: center;
 }
 .btn-pro {
-  width: 15vw;
+  width: 20vw;
   height: 3vw;
-  margin-top: 5%;
+  margin-top: 2.8%;
   padding-left: 2%;
   text-align: left;
   background: #e5e8ed;
@@ -356,6 +379,7 @@ color: #7A7886;
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
   float: right;
+  // width: fit-content;
   padding-top: 10%;
   //   padding-bottom: 5%;
 }
@@ -446,7 +470,7 @@ color: #7A7886;
 .trans-wrap {
   margin-top: 8%;
   padding-bottom: 5%;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.876);
   box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
@@ -455,7 +479,7 @@ color: #7A7886;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
-  width: fit-content;
+  // width: fit-content;
 }
 .man2 {
   width: 3vw;

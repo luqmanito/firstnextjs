@@ -18,11 +18,17 @@ import upg from "../../public/asset/upg.png";
 import downm from "../../public/asset/downm.png";
 import { getProfile } from "./api/utils";
 import UsersHistoryDashboard from "../components/dashboard-history/list-history";
+import Cookies from "js-cookie";
+import { NextResponse } from "next/server";
+import PinConfirm from "../components/topUp/topup";
+import Modal from "../components/logout/logout";
 
 function Dashboard() {
+  const [open, setOpen] = useState(false);
+  const [openAuth, setOpenAuth] = useState(false);
   const router = useRouter();
   const as = () => {
-    router.push("/createpin");
+    router.push("/transfer");
   };
   const nav1 = () => {
     router.push("/transfer");
@@ -31,7 +37,7 @@ function Dashboard() {
     router.push("/success");
   };
   const nav5 = () => {
-    router.push("/profile/profile");
+    router.push("/profile");
   };
   const navSeeAll = () => {
     router.push("/history");
@@ -42,36 +48,43 @@ function Dashboard() {
       currency: "IDR",
     }).format(number);
   };
+  const handleTopUp = async () => {
+    setOpen(!open);
+  };
+  const handleLogout = async () => {
+    setOpenAuth(!openAuth);
+  };
   const { history } = useSelector((state) => state.userHistorySlice);
   const { user_id } = useSelector((state) => state.regSlice);
   const { token } = useSelector((state) => state.regSlice);
   const [balance, setBalance] = useState(null);
   const [phone, setPhone] = useState(null);
-  const [dataHistory, setDataHistory] = useState(null
-  //   {
-  //   name: `nama`,
-  //   type: 'await',
-  //   status: 'await',
-  //   amount: 0,
-  // }
-  );
-  // let da = history.history;
-  console.log(dataHistory);
-
+  const [dataHistory, setDataHistory] = useState(null);
+  const [imageUser, setImageUser] = useState(null);
+  
   const getDataProfile = async () => {
     try {
       const result = await getProfile(user_id, token);
       setPhone(result.data.data.noTelp);
       setBalance(result.data.data.balance);
+      setImageUser(result.data.data.image)
     } catch (error) {
       console.log(error);
     }
   };
 
+  function tokenCheck() {
+    let verify = Cookies.get("tokenUser");
+    console.log(verify);
+    if (!verify) {
+      return router.push("/")
+    }
+  }
+
   useEffect(() => {
     setDataHistory(history.history);
     getDataProfile();
- 
+    tokenCheck();
   }, []);
 
   return (
@@ -107,7 +120,9 @@ function Dashboard() {
                     src={plus}
                     alt="gbr"
                   />{" "}
-                  <span className={` ${styles["spanp"]}`}>Top Up </span>
+                  <span 
+                  onClick={handleTopUp}
+                  className={` ${styles["spanp"]}`}>Top Up </span>
                 </p>
                 <p className={` ${styles["p2"]}`}>
                   <Image
@@ -125,7 +140,9 @@ function Dashboard() {
                     src={logout}
                     alt="gbr"
                   />{" "}
-                  <span className={` ${styles["spanp"]}`}>Logout </span>
+                  <span 
+                  onClick={handleLogout}
+                  className={` ${styles["spanp"]}`}>Logout </span>
                 </p>
               </div>
             </div>
@@ -145,7 +162,9 @@ function Dashboard() {
                       ↑ Transfer
                     </button>{" "}
                     <br /> <br />
-                    <button className={` ${styles["btn-tu"]}`}>+ Top Up</button>
+                    <button 
+                    onClick={handleTopUp}
+                    className={` ${styles["btn-tu"]}`}>+ Top Up</button>
                   </div>
                 </div>
               </div>
@@ -189,13 +208,13 @@ function Dashboard() {
                         dataHistory.map((user) => {
                           console.log(user.id);
                           return (
-                          <UsersHistoryDashboard
-                          key={user.id}
-                          name={`${user.firstName} ${user.lastName}`}
-                          type={user.type}
-                          status={user.status}
-                          amount={user.amount}
-                          />
+                            <UsersHistoryDashboard
+                              key={user.id}
+                              name={`${user.firstName} ${user.lastName}`}
+                              type={user.type}
+                              status={user.status}
+                              amount={user.amount}
+                            />
                           );
                         })}
                     </div>
@@ -211,7 +230,19 @@ function Dashboard() {
           </div>
         </div>
       </section>
-
+      <PinConfirm
+        open={open}
+        setOpen={setOpen}
+        title="Log out"
+        body="Do you really want to log out?"
+        token={token}
+      />
+      <Modal
+        open={openAuth}
+        setOpen={setOpenAuth}
+        title="Log out"
+        body="Do you really want to log out?"
+      />
       <Footer />
     </>
   );

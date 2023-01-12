@@ -27,6 +27,10 @@ const Login = () => {
   const changeHandler = (e) =>
   setBody({ ...body, [e.target.name]: e.target.value });
 
+  const navSignUp = () => {
+    router.push("/register");
+  };
+
   const submitHandler = async () => {
     try {
       const result = await loginApi(body);
@@ -64,6 +68,18 @@ const Login = () => {
     router.push("/resetpw");
   };
  
+  function tokenCheck() {
+    let verify = Cookies.get("tokenUser");
+    console.log(verify);
+    if (verify) {
+      return router.push("/dashboard")
+    }
+  }
+
+  useEffect(() => {
+    tokenCheck()
+  }, [])
+  
   
 
   return (
@@ -128,12 +144,16 @@ const Login = () => {
                 <p onClick={nav1} className={` ${styles["pw"]}`}>Forgot password ?</p>
               
               </form>
-              <button onClick={submitHandler} className={` ${styles["btn"]}`}>Login</button>
+              <button onClick={submitHandler} className={
+                body.email !== undefined && body.password !== undefined ? `${styles["btn-ok"]}` :
+                `${styles["btn"]}`}>Login</button>
               <ToastContainer />
               <p className={` ${styles["acc"]}`}>
                 {" "}
-                Don`&apos;`t have an account? Let`&apos;`s{" "}
-                <span className={` ${styles["sign"]}`}>Sign Up</span>{" "}
+                Don&apos;t have an account? Let&apos;s{" "}
+                <span 
+                onClick={navSignUp}
+                className={` ${styles["sign"]}`}>Sign Up</span>{" "}
               </p>
             </section>
           </div>

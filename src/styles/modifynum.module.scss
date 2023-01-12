@@ -291,6 +291,8 @@
     background-color: #fafcff;
     padding-top: 5%;
     padding-bottom: 5%;
+    margin-left: 6vw;
+    width: fit-content;
   }
   
   .list-main {
@@ -551,7 +553,25 @@ color: #6379F4;
     line-height: 25px;
     text-align: center;
     color: #88888f;
-    
+    border: none;
+  }
+  .btn-pw1 {
+    margin-top: 7%;
+    margin-left: 25%;
+    background: #6379f4;
+    box-shadow: 0px 6px 75px #dadada;
+    border-color: #dadada;
+    border-radius: 12px;
+    width: 50%;
+    height: 5vh;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #ffffff;
+    border: none;
   }
   .cdecde{
     margin-top: 10%;
