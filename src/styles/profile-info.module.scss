@@ -258,12 +258,12 @@
 }
 .section-sub {
   background-color: #f9fbfe;
-  //   margin-top: 3%;
+  max-width: 1440px;
   z-index: -1;
 }
 
 .section-row {
-  //   background-color: purple;
+  justify-content: center;
   z-index: -1;
   //   padding: 5%;
   // width: fit-content;
@@ -273,7 +273,7 @@
   width: fit-content;
   padding-top: 5%;
   padding-bottom: 4%;
-  padding-left: 8%;
+  // padding-left: 8%;
 }
 .wr-wr{
   // background-color: #2f2f2f;
@@ -291,7 +291,7 @@
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
   // float: right;
-  // padding-top: 10%;
+  padding-top: 10%;
   //   padding-bottom: 5%;
 }
 

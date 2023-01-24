@@ -257,12 +257,12 @@
 }
 .section-sub {
   background-color: #f9fbfe;
-  //   margin-top: 3%;
+  max-width: 1440px;
   z-index: -1;
 }
 
 .section-row {
-  //   background-color: purple;
+  justify-content: center;
   z-index: -1;
   //   padding: 5%;
   // width: fit-content;
@@ -286,9 +286,9 @@
   -moz-border-radius: 12px;
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
-  margin-left: 6.5vw;
+  // margin-left: 6.5vw;
   // padding-top: 10%;
-  padding-bottom: 11%;
+  padding-bottom: 29%;
 }
 
 .p1 {

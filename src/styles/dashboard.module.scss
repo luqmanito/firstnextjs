@@ -245,14 +245,11 @@
 }
 
 .section-main {
-  background-color: #e5e5e5;
-  //   margin-bottom: 30%;
-  // padding-top: 5%;
-  // margin: auto;
+
 }
 .section-sub {
   background-color: #f9fbfe;
-  //   margin-top: 3%;
+  max-width: 1440px;
   z-index: -1;
 }
 
@@ -287,7 +284,7 @@
   -o-border-radius: 12px;
   // text-align: center;
   // margin-left: 15%;
-  padding-top: 10%;
+  padding-top: 23%;
 }
 
 .spanpd {
@@ -427,6 +424,9 @@
   // background-color: #3a3d42;
   margin-top: 2%;
 }
+.th-inmid {
+  // background-color: #3a3d42;
+}
 .th-mid {
   background-color: #ffffff;
   border-radius: 12px;
@@ -435,7 +435,7 @@
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
   margin-left: 1.5%;
-  width: 26vw;
+  width: 31vw;
   box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
@@ -448,7 +448,7 @@
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
   margin-left: 3%;
-  width: 28.5vw;
+  width: 30.5vw;
   box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -2px 3px 58px -22px rgba(0, 0, 0, 0.75);
@@ -491,12 +491,23 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 25px;
-  margin-top: 25%;
-  margin-left: -15%;
-  width: 8vw;
+
+  height: 3rem;
+
+  width: fit-content;
   color: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 10px;
+
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+.btn-wrapper {
+  // background-color: #2f2f2f;
+  position: relative;
 }
 .btn-tu {
   background: rgba(255, 255, 255, 0.2);
@@ -505,9 +516,13 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 25px;
-  margin-top: -15%;
-  margin-left: -15%;
-  width: 8vw;
+  margin: 0;
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 6rem;
+  height: 3rem;
   color: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 10px;
@@ -525,7 +540,7 @@
   font-size: 14px;
   line-height: 19px;
   margin-top: 5%;
-  margin-left: 15%;
+  margin-left: 5%;
 
   color: #6a6a6a;
 }
@@ -536,14 +551,16 @@
   font-size: 16px;
   line-height: 25px;
   margin-top: 5%;
-  margin-left: 15%;
-  width: 20vw;
+  margin-left: 5%;
+  width: fit-content;
   color: #3a3d42;
 }
 .chart {
   width: 19vw;
+  margin-bottom: 1rem;
   height: 14vw;
   margin-left: 11%;
+  margin-top: -1rem;
 }
 .trans-h {
   font-family: "Nunito Sans";

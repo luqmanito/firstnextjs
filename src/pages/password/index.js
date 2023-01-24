@@ -14,6 +14,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
+import PageTitle from "../../components/page-tittle/pageTittle";
 
 const ChangePass = () => {
   const { token } = useSelector((state) => state.regSlice);
@@ -58,8 +59,9 @@ const ChangePass = () => {
 
   return (
     <>
+    <PageTitle title="Password" />
       <Header />
-      <section className={`${styles["section-main"]}`}>
+      {/* <section className={`${styles["section-main"]}`}> */}
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
             <div className={`col-4 ${styles["section-col"]}`}>
@@ -198,7 +200,7 @@ const ChangePass = () => {
             </div>
           </div>
         </div>
-      </section>
+      {/* </section> */}
       <Footer />
     </>
   );

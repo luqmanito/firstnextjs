@@ -19,6 +19,7 @@ import { getProfile, getProfile2, getUsers, transferBalance } from "../api/utils
 import man2 from "../../../public/asset/man2.png";
 import Users from "../../components/usersTransfer/[id]";
 import UsersDetail from "../../components/detail-user/detail-user";
+import PageTitle from "../../components/page-tittle/pageTittle";
 
 const InputBank = () => {
   const { details } = useSelector((state) => state.userTransferSlice);
@@ -42,8 +43,13 @@ const InputBank = () => {
 
   const changeHandler2 = (e) =>
   setBody({ ...body, [e.target.name]: e.target.value });
-  console.log(body);
-
+  // console.log(body);
+  const rupiah = (number) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(number);
+  };
 
   const getDataUser = async () => {
     try {
@@ -98,8 +104,9 @@ const InputBank = () => {
 
   return (
     <>
+    <PageTitle title="Transfer Money" />
       <Header />
-      <section className={`${styles["section-main"]}`}>
+      {/* <section className={`${styles["section-main"]}`}> */}
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
             <div className={`col-4 ${styles["section-col"]}`}>
@@ -153,7 +160,7 @@ const InputBank = () => {
                         name="amount"
                       />
                       <p className={` ${styles["inp-idr"]}`}>
-                        Rp{balance} Available
+                        {rupiah(balance)} Available
                       </p>
                       <input
                        onChange={changeHandler2}
@@ -186,7 +193,7 @@ const InputBank = () => {
             </div>
           </div>
         </div>
-      </section>
+      {/* </section> */}
       <Footer />
     </>
   );

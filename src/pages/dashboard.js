@@ -71,7 +71,6 @@ function Dashboard() {
       setPhone(result.data.data.noTelp);
       setBalance(result.data.data.balance);
       setImageUser(result.data.data.image);
-      console.log(result.data.data);
     } catch (error) {
       // console.log(error);
     }
@@ -81,12 +80,12 @@ function Dashboard() {
     try {
       const result = await getUsersHistory(Cookies.get("tokenUser"));
       dispatch(setHistory({ history: result.data.data }));
-      setDataHistory(result.data.data)
+      setDataHistory(result.data.data);
       // console.log(result.data.data);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   function tokenCheck() {
     let verify = Cookies.get("tokenUser");
@@ -97,8 +96,7 @@ function Dashboard() {
   }
 
   useEffect(() => {
-    getAllUser()
-    // setDataHistory(history.history);
+    getAllUser();
     getDataProfile();
     tokenCheck();
   }, []);
@@ -109,7 +107,7 @@ function Dashboard() {
 
       <Header />
 
-      <section className={`${styles["section-main"]}`}>
+      {/* <section className={`${styles["section-main"]}`}> */}
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
             <div className={`col-4 ${styles["section-col"]}`}>
@@ -175,8 +173,7 @@ function Dashboard() {
                     <p className={` ${styles["idr120"]}`}>{rupiah(balance)}</p>
                     <p className={` ${styles["nump"]}`}>{phone}</p>
                   </div>
-                  <div className="col-6"></div>
-                  <div className="col">
+                  <div className={`col ${styles["btn-wrapper"]}`}>
                     <button onClick={nav1} className={` ${styles["btn-tf"]}`}>
                       ↑ Transfer
                     </button>{" "}
@@ -193,7 +190,7 @@ function Dashboard() {
               <div className={`row ${styles["sec-mid"]}`}>
                 <div className={`col-8 ${styles["th-mid"]}`}>
                   <div className="row">
-                    <div className="col-6">
+                    <div className={`col-6 ${styles["th-inmid"]}`}>
                       <Image
                         className={` ${styles["arr-i"]}`}
                         src={upg}
@@ -251,7 +248,7 @@ function Dashboard() {
             </div>
           </div>
         </div>
-      </section>
+      {/* </section> */}
       <PinConfirm
         open={open}
         setOpen={setOpen}

@@ -21,6 +21,7 @@ import { setIsLoading } from "../redux/reducers/isLoadingSlice";
 import IsLoading from "../components/isLoading/isLoading";
 import Cookies from "js-cookie";
 import axios from "axios";
+import PageTitle from "../components/page-tittle/pageTittle";
 
 const Transfer = () => {
   const { details } = useSelector((state) => state.userTransferSlice);
@@ -120,9 +121,10 @@ const Transfer = () => {
 
   return (
     <>
+     <PageTitle title="Transfer Money" />
       <Header />
 
-      <section className={`${styles["section-main"]}`}>
+      {/* <section className={`${styles["section-main"]}`}> */}
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
             <div className={`col-4 ${styles["section-col"]}`}>
@@ -301,7 +303,7 @@ const Transfer = () => {
             </div>
           </div>
         </div>
-      </section>
+      {/* </section> */}
       <Footer />
       <PinConfirm
         open={open}

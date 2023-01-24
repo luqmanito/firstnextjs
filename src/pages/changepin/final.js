@@ -15,6 +15,7 @@ import { inputPin } from "../api/utils";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import { useRouter } from "next/router";
+import PageTitle from "../../components/page-tittle/pageTittle";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
 const ChangePin = () => {
@@ -55,7 +56,8 @@ const ChangePin = () => {
   return (
     <>
     <Header/>
-      <section className={`${styles["section-main"]}`}>
+    <PageTitle title="Change PIN" />
+      {/* <section className={`${styles["section-main"]}`}> */}
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
             <div className={`col-4 ${styles["section-col"]}`}>
@@ -115,7 +117,7 @@ const ChangePin = () => {
             </div>
           </div>
         </div>
-      </section>
+      {/* </section> */}
       <Footer/>
     </>
   );

@@ -15,6 +15,7 @@ import {  setPin  } from "../../redux/reducers/regSlice";
 import { checkPinUser, getProfile, inputPin } from "../api/utils";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
+import PageTitle from "../../components/page-tittle/pageTittle";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
 const PinPage = () => {
@@ -68,8 +69,9 @@ const PinPage = () => {
 
   return (
     <>
+    <PageTitle title="Change PIN" />
       <Header />
-      <section className={`${styles["section-main"]}`}>
+      {/* <section className={`${styles["section-main"]}`}> */}
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
             <div className={`col-4 ${styles["section-col"]}`}>
@@ -182,7 +184,7 @@ const PinPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      {/* </section> */}
       <Footer />
     </>
   );

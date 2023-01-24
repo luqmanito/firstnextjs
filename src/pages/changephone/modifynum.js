@@ -15,6 +15,7 @@ import { updatePhone } from "../api/utils";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import { useRouter } from "next/router";
+import PageTitle from "../../components/page-tittle/pageTittle";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
 const ChangeNum = () => {
@@ -49,6 +50,7 @@ console.log(body);
 
   return (
     <>
+    <PageTitle title="Change Mobile Number" />
     <Header/>
       <section className={`${styles["section-main"]}`}>
         <div className={`container ${styles["section-sub"]}`}>

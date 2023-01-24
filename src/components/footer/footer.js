@@ -3,7 +3,7 @@ import styles from "../footer/footer.module.scss";
 
 function Footer() {
   return (
-    <section className={`${styles["bg-1"]}`}>
+    // <section className={`${styles["bg-1"]}`}>
         <div className={`container ${styles["bg"]}`}>
           <div className={`row ${styles["row-end"]}`}>
             <div className={`col ${styles["row-end1"]}`}>2020 FazzPay. All right reserved.</div>
@@ -11,7 +11,7 @@ function Footer() {
             <div className={`col ${styles["row-end3"]}`} >contact@fazzpay.com</div>
           </div>
         </div>
-      </section>
+      // </section>
   );
 }
 

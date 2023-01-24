@@ -278,12 +278,12 @@
   }
   .section-sub {
     background-color: #f9fbfe;
-    //   margin-top: 3%;
+    max-width: 1440px;
     z-index: -1;
   }
   
   .section-row {
-    //   background-color: purple;
+    justify-content: center;
     z-index: -1;
     //   padding: 5%;
     // width: fit-content;
@@ -293,7 +293,7 @@
     padding-top: 5%;
     padding-bottom: 5%;
     width: fit-content;
-    margin-left: 15vw;
+    // margin-left: 15vw;
   }
   .trans-main{
     width: fit-content;
@@ -312,7 +312,7 @@
     -ms-border-radius: 12px;
     -o-border-radius: 12px;
     float: right;
-    // padding-top: 10%;
+    // padding-top: 8%;
   //   padding-bottom: 5%;
   }
   
@@ -338,7 +338,7 @@
   
   .p3 {
     padding: 5%;
-    margin-top: 13%;
+    margin-top: 10%;
     font-family: "Nunito Sans";
     font-style: normal;
     font-weight: 400;

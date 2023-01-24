@@ -16,6 +16,7 @@ import Head from "next/head";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import Cookies from "js-cookie";
+import PageTitle from "../components/page-tittle/pageTittle";
 
 const History = () => {
   const { history } = useSelector((state) => state.userHistorySlice);
@@ -50,6 +51,7 @@ const History = () => {
   console.log(dataHistory);
   return (
     <>
+     <PageTitle title="History Transactions" />
       {/* <main className={`container ${styles["two"]}`}>
         <aside className={`row ${styles["row-f"]}`}>
           <div className={`col-md-8 ${styles["fazz"]}`}>    

@@ -14,6 +14,7 @@ import { getProfile } from "./api/utils";
 import { useRouter } from "next/router";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
+import PageTitle from "../components/page-tittle/pageTittle";
 
 const ConfirmationPage = () => {
   const dispatch = useDispatch();
@@ -63,6 +64,7 @@ const ConfirmationPage = () => {
 
   return (
     <>
+     <PageTitle title="Confirmation" />
       <Header />
 
       <section className={`${styles["section-main"]}`}>

@@ -15,6 +15,7 @@ import { jsPDF } from "jspdf";
 import { getProfile } from "../api/utils";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
+import PageTitle from "../../components/page-tittle/pageTittle";
 
 const ProfileDetail = () => {
   const { user_id } = useSelector((state) => state.regSlice);
@@ -50,8 +51,9 @@ const ProfileDetail = () => {
 
   return (
     <>
+    <PageTitle title="Profile" />
     <Header/>
-      <section className={`${styles["section-main"]}`}>
+      {/* <section className={`${styles["section-main"]}`}> */}
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
             <div className={`col-4 ${styles["section-col"]}`}>
@@ -136,7 +138,7 @@ const ProfileDetail = () => {
             </div>
           </div>
         </div>
-      </section>
+      {/* </section> */}
       <Footer/>
     </>
   );

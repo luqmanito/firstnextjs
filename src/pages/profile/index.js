@@ -18,6 +18,7 @@ import Upload from "../../components/upload/upload";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cookies from "js-cookie";
+import PageTitle from "../../components/page-tittle/pageTittle";
 
 const ProfilePage = () => {
   const baseUrl = process.env.CLOUDINARY_LINK_HOST_KEY;
@@ -127,8 +128,9 @@ console.log(`from` + baseUrl);
 
   return (
     <>
+    <PageTitle title="Profile" />
       <Header />
-      <section className={`${styles["section-main"]}`}>
+      {/* <section className={`${styles["section-main"]}`}> */}
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
             <div className={`col-4 ${styles["section-col"]}`}>
@@ -244,7 +246,7 @@ console.log(`from` + baseUrl);
           </div>
         </div>
         <ToastContainer />
-      </section>
+      {/* </section> */}
       <Footer />
       <Modal
         open={open}

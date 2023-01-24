@@ -2,12 +2,14 @@ import React, { Fragment, useEffect, useState } from "react";
 import styles from "../styles/topup.module.scss";
 import Image from "next/image";
 import x from "../../public/asset/x.png";
+import PageTitle from "../components/page-tittle/pageTittle";
 
 const PinConfirm = () => {
   const [isPwdShown, setIsPwdShown] = useState(false);
 
   return (
     <>
+     <PageTitle title="Top Up" />
       <main className={` ${styles["main-pin"]}`}>
         <section className={` ${styles["sec-pin"]}`}>
           <Image className={` ${styles["sec-x"]}`} src={x} alt="gbr"/>

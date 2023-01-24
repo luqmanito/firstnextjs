@@ -8,6 +8,7 @@ import { resetPassApi } from "./api/utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cookies from "js-cookie";
+import PageTitle from "../components/page-tittle/pageTittle";
 
 const Resetpw = () => {
   const [body, setBody] = useState(false);
@@ -47,6 +48,7 @@ const Resetpw = () => {
 
   return (
     <>
+     <PageTitle title="Reset Password" />
       <main className={`container ${styles["two"]}`}>
         <aside className={`row ${styles["main"]}`}>
           <div className={`col-sm-7 ${styles["sub"]}`}>

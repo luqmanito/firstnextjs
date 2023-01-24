@@ -15,6 +15,7 @@ import { jsPDF } from "jspdf";
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
 import { useRouter } from "next/router";
+import PageTitle from "../components/page-tittle/pageTittle";
 
 const SuccessPage = () => {
   const { user_id } = useSelector((state) => state.regSlice);
@@ -76,8 +77,9 @@ Notes = ${content.notes}`, 10, 10
 
   return (
     <>
+     <PageTitle title="Transaction Success" />
     <Header/>
-      <section className={`${styles["section-main"]}`}>
+      {/* <section className={`${styles["section-main"]}`}> */}
         <div className={`container ${styles["section-sub"]}`}>
           <div className={`row ${styles["section-row"]}`}>
             <div className={`col-4 ${styles["section-col"]}`}>
@@ -163,7 +165,7 @@ Notes = ${content.notes}`, 10, 10
             </div>
           </div>
         </div>
-      </section>
+      {/* </section> */}
       <Footer/>
     </>
   );

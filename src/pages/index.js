@@ -15,6 +15,7 @@ import pic2 from "../../public/asset/pic2.png";
 import eye from "../../public/asset/eye.png";
 import eyedash from "../../public/asset/eyeSlash.png";
 import Cookies from "js-cookie";
+import PageTitle from "../components/page-tittle/pageTittle";
 
 
 const Login = () => {
@@ -84,6 +85,7 @@ const Login = () => {
 
   return (
     <>
+     <PageTitle title="Login" />
       <main className={`container ${styles["two"]}`}>
         <aside className={`row ${styles["main"]}`}>
           <div className={`col-sm-7 ${styles["sub"]}`}>

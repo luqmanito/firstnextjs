@@ -34,7 +34,7 @@ function Header() {
 
   return (
     <>
-      <section className={` ${styles["bg"]}`}>
+      {/* <section className={` ${styles["bg"]}`}> */}
         <main className={`container ${styles["two"]}`}>
           <aside className={`row ${styles["row-f"]}`}>
             <div className={`col-md-8 ${styles["fazz"]}`}>
@@ -63,7 +63,7 @@ function Header() {
             </div>
           </aside>
         </main>
-      </section>
+      {/* </section> */}
     </>
   );
 }

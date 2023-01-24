@@ -9,7 +9,7 @@ export const loginApi = (data) => {
 
 export const logoutApi = (token) => {
   const URL = baseUrl + "/auth/logout";
-  console.log();
+  // console.log();
   return axios.post(URL, {
     headers: {
       Authorization: `Bearer ${token.token}`,
@@ -24,7 +24,7 @@ export const signup = (body) => {
 
 export const inputPin = (body, user_id, token) => {
   const URL = baseUrl + `/user/pin/${user_id.user_id}`;
-  console.log(body);
+  // console.log(body);
   return axios.patch(URL, body, {
     headers: {
       Authorization: `Bearer ${token.token}`,
@@ -44,7 +44,7 @@ export const passApi = (body, user_id, token) => {
 
 export const topUpApi = (body, token) => {
   const URL = baseUrl + `/transaction/top-up`;
-  console.log(body, token);
+  // console.log(body, token);
   return axios.post(URL, body, {
     headers: {
       da: console.log(`Bearer ${token.token}`),
@@ -56,7 +56,7 @@ export const topUpApi = (body, token) => {
 
 export const transferBalance = (body, token) => {
   const URL = baseUrl + `/transaction/transfer`;
-  console.log(token, body);
+  // console.log(token, body);
   return axios.post(URL, body, {
     headers: {
       Authorization: `Bearer ${token.token}`,
@@ -66,19 +66,19 @@ export const transferBalance = (body, token) => {
 
 export const resetPassApi = (body) => {
   const URL = baseUrl + `/auth/forgot-password`;
-  console.log(body);
+  // console.log(body);
   return axios.post(URL, body);
 };
 
 export const createPassApi = (body) => {
   const URL = baseUrl + `/auth/reset-password`;
-  console.log(body);
+  // console.log(body);
   return axios.patch(URL, body);
 };
 
 export const getUsers = (token) => {
   const URL = baseUrl + `/user?page=1&limit=150&search=ma&sort=firstName ASC`;
-  console.log(URL);
+  // console.log(URL);
   return axios.get(URL, {
     headers: {
       Authorization: `Bearer ${token.token}`,
@@ -88,7 +88,7 @@ export const getUsers = (token) => {
 
 export const getUsersHistory = (token) => {
   const URL = baseUrl + `/transaction/history?page=1&limit=4&filter=MONTH`;
-  console.log(token);
+  // console.log(token);
   return axios.get(URL, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -133,7 +133,7 @@ export const checkPinUser = (body, token) => {
 };
 
 export const editProfile = (data, token, user_id) => {
-  console.log(user_id);
+  // console.log(user_id);
   const URL = baseUrl + `/user/image/${user_id.user_id}`
   return axios.patch(URL, data, {
     headers: {

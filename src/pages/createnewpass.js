@@ -9,6 +9,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import eye from "../../public/asset/eye.png";
 import eyedash from "../../public/asset/eyeSlash.png";
+import PageTitle from "../components/page-tittle/pageTittle";
 
 const Createnewpass = () => {
   const [body, setBody] = useState(false);
@@ -37,7 +38,9 @@ const Createnewpass = () => {
   };
 
   return (
+    
     <>
+     <PageTitle title="Create New Password" />
       <main className={`container ${styles["two"]}`}>
         <aside className={`row ${styles["main"]}`}>
           <div className={`col-sm-7 ${styles["sub"]}`}>

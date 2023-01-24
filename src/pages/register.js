@@ -10,6 +10,7 @@ import eye from "../../public/asset/eye.png";
 import eyedash from "../../public/asset/eyeSlash.png";
 import { toast, ToastContainer } from "react-toastify";
 import Cookies from "js-cookie";
+import PageTitle from "../components/page-tittle/pageTittle";
 
 
 const Register = () => {
@@ -59,6 +60,7 @@ const Register = () => {
 
   return (
     <>
+     <PageTitle title="Register" />
       <main className={`container ${styles["two"]}`}>
         <aside className={`row ${styles["main"]}`}>
           <div className={`col-sm-7 ${styles["sub"]}`}>

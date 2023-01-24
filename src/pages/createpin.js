@@ -9,6 +9,7 @@ import pic1 from "../../public/asset/pic1.png";
 import pic2 from "../../public/asset/pic2.png";
 import { inputPin } from "./api/utils";
 import { toast, ToastContainer } from "react-toastify";
+import PageTitle from "../components/page-tittle/pageTittle";
 
 const ReactCodeInput = dynamic(import("react-code-input"));
 
@@ -51,6 +52,7 @@ const CreatePin = () => {
 
   return (
     <>
+     <PageTitle title="Create PIN" />
       <main className={`container ${styles["two"]}`}>
         <aside className={`row ${styles["main"]}`}>
           <div className={`col-sm-7 ${styles["sub"]}`}>
